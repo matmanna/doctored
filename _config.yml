@@ -1,5 +1,5 @@
-title: tonic-starter
-description: ""
+title: doctored
+description: "A Jekyll theme which prioritizes uniqueness, technical complexity, and minimalism."
 encoding: utf-8
 
 exclude: ["README.md", "LICENSE", "*.gem", "*.gemspec", "Gemfile.lock"]
