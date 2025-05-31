@@ -8,7 +8,7 @@
 @layer base {
     @font-face {
         font-family: 'LibertinusMonoMono';
-        src: url('https://fontlibrary.org/assets/fonts/libertinus-mono/0fe273e9366e10fec4e1d5f1fc710fc7/b8bd3f264629b4afb10d66e78b1a98e6/LibertinusMonoMono.otf') format('opentype');
+        src: url('../fonts/LibertinusMonoMono.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
     }
