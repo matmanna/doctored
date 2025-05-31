@@ -2,6 +2,8 @@
 
 A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
+📱 **Demo Site:** https://joshpinto6.github.io/doctored
+
 ## 📸 Demo Image:
 
 ![image](https://github.com/user-attachments/assets/9e6f8e02-e6d1-4128-9ad6-bff0b5d6b5cc)
