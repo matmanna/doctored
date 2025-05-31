@@ -1,8 +1,32 @@
 <head>
     <title>{{ page.title }} | {{ site.title }}</title>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function applyTheme(newTheme, triggeredByDropdown = false) {
+            const isDarkMode = newTheme === 'dark' || (localStorage.theme == 'dark' && !(newTheme === 'light')) || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle(
+                'dark',
+                isDarkMode
+            )
+
+            const toggle = document.getElementById('theme-toggle');
+            const dropdown = document.getElementById('theme-dropdown');
+
+            if (toggle) {
+                toggle.innerHTML =
+                    localStorage.theme == "dark" ? '<i class="fas fa-moon"></i>' : !localStorage.theme ? '<i class="fas fa-laptop"></i>' : '<i class="fas fa-sun"></i>';
+            }
+            if (dropdown) {
+                if (!triggeredByDropdown) {
+                    dropdown.dataset.changed = new Date().toISOString();
+                }
+                dropdown.value = localStorage.theme || "system";
+            }
+        }
+        applyTheme();
+    </script>
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <script src="https://kit.fontawesome.com/a7b73c75c9.js" crossorigin="anonymous"></script>
 </head>

@@ -16,7 +16,7 @@
 
 @layer components {
     a {
-        @apply text-teal-400 underline decoration-dotted;
+        @apply dark:text-teal-400 text-teal-800 underline decoration-dotted;
     }
 
     h1 {

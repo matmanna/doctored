@@ -1,4 +1,4 @@
-title: 🎩 Doctored
+title: Doctored
 description: "A  blog theme prioritizing uniqueness, complexity, and minimalism."
 github: "https://github.com/joshpinto6/doctored"
 encoding: utf-8
@@ -29,4 +29,5 @@ postcss:
 
 keep_files:
   - assets/css/tailwind.css
-  - assets/css/tailwind.css.map
+  - assetss/css/tailwind.css.map
+  - assets/js

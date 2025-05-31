@@ -6,6 +6,8 @@ description: The home page for the Doctored blog theme.
 
 # /home
 
+a couple of _the_ most common questions you might have.
+
 ## What?
 
 - A blog theme which prioritizes uniqueness, technical complexity, and minimalism.

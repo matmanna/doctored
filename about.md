@@ -8,18 +8,22 @@ description: Features of the Doctored Theme
 
 ## Features
 
-- Dark mode and unique teal colortheme
+- Dark mode and stylish teal colortheme
+  - Dark/light mode toggle
 - Tailwind styling
-- FontAwesome icons (external links)
+- FontAwesome icons
 - Homepage and About Page
 - Navbar and Footer
 - Git site statistics
 
 ## Todo
 
-- Dark/light mode toggle
 - Sidenotes
 - Blog
 - Projects Page
 - Now Page
 - Contact Form
+- 404 page
+- robots.txt
+- rss feed
+- sitemap.xml

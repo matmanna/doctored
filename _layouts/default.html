@@ -1,8 +1,8 @@
 <html>
 {% include head.html %}
 
-<body class="text-teal-300 bg-teal-900 font-display flex flex-col items-center">
-    <header class="w-full bg-teal-950 flex flex-col items-center py-4 px-4">
+<body class="dark:text-teal-300 text-teal-700 dark:bg-teal-900 bg-teal-100 font-display flex flex-col items-center">
+    <header class="w-full dark:text-teal-700 text-teal-800 dark:bg-teal-950 bg-teal-200 flex flex-col items-center py-4 px-4">
         <div class="max-w-[65ch] w-full">
         {% include nav.html %}
         </div>
@@ -10,11 +10,12 @@
     <div class="prose dark:prose-invert my-8 px-4 max-w-[65ch] w-full">
         {{ content }}
     </div>
-    <footer class="w-full text-teal-400 bg-teal-950 py-6 flex flex-col items-center">
+    <footer class="w-full dark:text-teal-400 text-teal-800 dark:bg-teal-950 bg-teal-200 py-6 flex flex-col items-center">
         <div class="max-w-[70ch] w-full">
        {% include foot.html %}
        </div>
     </footer>
+    <script src="/assets/js/toggle-theme.js"></script>
 </body>
 
 </html>

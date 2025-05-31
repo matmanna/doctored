@@ -1,10 +1,10 @@
 <div class="flex flex-row justify-between w-full px-10 gap-8">
-    <div class="flex flex-col space-y-4 sm:flex-grow max-w-[1/2] sm:max-w-[30%] font-sans">
-        <h3>{{ site.data.foot.title }} | <span class="text-teal-600">{{ site.description }}</span></h3>
-        <div class="flex flex-row flex-wrap gap-4 text-teal-600">
+    <div class="flex flex-col space-y-4 sm:flex-grow max-w-[1/2] sm:max-w-[40%] font-sans">
+        <h3>{{ site.data.foot.title }} | <span class="dark:text-teal-600 text-teal-700">{{ site.description }}</span></h3>
+        <div class="flex flex-row flex-wrap gap-4 dark:text-teal-600">
             <label for="theme">Color mode:</label>
 
-            <select name="theme" id="theme" class="flex flex-shrink w-fit bg-transparent">
+            <select name="theme" id="theme-dropdown" class="flex flex-shrink w-fit bg-transparent">
                 <option value="dark">Dark</option>
                 <option value="light">Light</option>
                 <option value="system">System</option>
@@ -12,7 +12,7 @@
         </div>
         <p>Site built on {{ site.git.last_commit.commit_date }} from
             <a
-                href="{{ site.github }}/commit/{{ site.git.last_commit.sha }}"><code>{{ site.git.last_commit.short_sha }}</code></a>
+                href="{{ site.github }}/commit/{{ site.git.last_commit.long_sha }}"><code>{{ site.git.last_commit.short_sha }}</code></a>
         </p>
     </div>
     <div class="flex flex-row flex-wrap justify-between flex-grow gap-4">
