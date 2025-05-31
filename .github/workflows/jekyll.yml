@@ -39,12 +39,12 @@ jobs:
         with:
           ruby-version: '3.3.4' # Not needed with a .ruby-version file
           cache-version: 0 # Increment this number if you need to re-download cached gems
-      - name: Install dependencies
-        run: bundle install
       - name: Authenticate with GitHub Package Registry
         run: |
           bundle config set --global \
             rubygems.pkg.github.com ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      - name: Install dependencies
+        run: bundle install
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
