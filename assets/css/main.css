@@ -12,13 +12,6 @@
         font-weight: normal;
         font-style: normal;
     }
-
-    @font-face {
-        font-family: 'Jozsika';
-        src: url('https://fontlibrary.org/assets/fonts/joszika/cff940beb6c140a9c7612be4359291b4/bb1882d0dcdca06994c7dd479b574409/JozsikaMedium.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
 }
 
 @layer components {
@@ -40,11 +33,5 @@
         margin-left: 3px;
         text-decoration: none;
         padding-left: 3px;
-    }
-}
-
-@layer base {
-    .prose>a {
-        color: red !important;
     }
 }

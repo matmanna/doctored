@@ -2,11 +2,14 @@
 
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3"
+gem "jekyll", "~> 4"
 gem "webrick", "~> 1.7"
 
 group :jekyll_plugins do
   gem "jekyll-postcss"
-  gem 'jekyll-git_metadata'
   gem 'kramdown-parser-gfm'
 end
+
+source "https://rubygems.pkg.github.com/joshpinto6" do
+  gem "jekyll-git_metadata"
+end 

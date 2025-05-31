@@ -1,5 +1,11 @@
-# Doctored (A Jekyll Theme)
+# 🎩 Doctored
 
-# Usage
+A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
-Run `bundle install` and `bundle exec jekyll serve --watch` to install dependencies and test respectively.
+## About
+
+Made entirely by me following the [Tonic](https://tonic.hackclub.com) starter guide.
+
+## Usage
+
+Run `npm install` and `npm run dev` to develop. Run `npm run build` to build
