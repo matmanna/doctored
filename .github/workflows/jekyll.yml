@@ -75,3 +75,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: geekyeggo/delete-artifact@v1
+        with:
+          name: github-pages
