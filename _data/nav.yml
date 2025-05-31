@@ -1,0 +1,13 @@
+title: Doctored
+description: A Jekyll blog theme which prioritizes uniqueness, technical complexity, and minimalism.
+pages:
+  - title: about
+    url: /about
+  - title: projects
+    url: /projects
+  - title: blog
+    url: /blog
+  - title: now
+    url: /now
+  - title: contact
+    url: /contact

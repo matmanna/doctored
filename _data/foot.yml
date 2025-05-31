@@ -1,0 +1,24 @@
+title: Doctored
+pages:
+  - title: about
+    url: /about
+  - title: projects
+    url: /projects
+  - title: blog
+    url: /blog
+  - title: now
+    url: /now
+  - title: contact
+    url: /contact
+socials:
+  - title: twitter
+    url: https://x.com
+  - title: github
+    url: https://github.com
+  - title: linkedin
+    url: https://linkedin.com
+  - title: hackernews
+    url: https://news.ycombinator.com
+  - title: reddit
+    url: https://reddit.com
+ 

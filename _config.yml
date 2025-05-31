@@ -1,5 +1,28 @@
-title: doctored
-description: "A Jekyll theme which prioritizes uniqueness, technical complexity, and minimalism."
+title: Doctored
+description: "A Jekyll blog theme which prioritizes uniqueness, technical complexity, and minimalism."
 encoding: utf-8
 
-exclude: ["README.md", "LICENSE", "*.gem", "*.gemspec", "Gemfile.lock"]
+plugins:
+  - jekyll-postcss
+
+exclude: 
+- README.md
+- LICENSE
+- "*.gem"
+- "*.gemspec"
+- Gemfile.lock
+- .gitignore
+- bin
+- node_modules
+- package-lock.json
+- postcss.config.js
+
+sass:
+  sourcemap: never
+
+postcss:
+  cache: false
+
+keep_files:
+  - assets/css/tailwind.css
+  - assets/css/tailwind.css.map

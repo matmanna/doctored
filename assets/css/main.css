@@ -1,0 +1,50 @@
+---
+---
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+    @font-face {
+        font-family: 'LibertinusMonoMono';
+        src: url('https://fontlibrary.org/assets/fonts/libertinus-mono/0fe273e9366e10fec4e1d5f1fc710fc7/b8bd3f264629b4afb10d66e78b1a98e6/LibertinusMonoMono.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jozsika';
+        src: url('https://fontlibrary.org/assets/fonts/joszika/cff940beb6c140a9c7612be4359291b4/bb1882d0dcdca06994c7dd479b574409/JozsikaMedium.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+@layer components {
+    a {
+        @apply text-teal-400 underline decoration-dotted;
+    }
+
+    h1 {
+        font-family: sans-serif
+    }
+
+    a[href^="http://"]:after,
+    a[href^="https://"]:after {
+        content: "\f08e";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        display: inline-block;
+        margin-left: 3px;
+        text-decoration: none;
+        padding-left: 3px;
+    }
+}
+
+@layer base {
+    .prose>a {
+        color: red !important;
+    }
+}

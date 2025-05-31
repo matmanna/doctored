@@ -1,6 +1,20 @@
 <html>
-    {% include head.html %}
-    <body>
+{% include head.html %}
+
+<body class="text-teal-300 bg-teal-900 font-display flex flex-col items-center">
+    <header class="w-full bg-teal-950 flex flex-col items-center py-4 px-4">
+        <div class="max-w-[65ch] w-full">
+        {% include nav.html %}
+        </div>
+    </header>
+    <div class="prose dark:prose-invert my-8 px-4">
         {{ content }}
-    </body>
+    </div>
+    <footer class="w-full text-teal-400 bg-teal-950 py-6 flex flex-col items-center">
+        <div class="max-w-[65ch] w-full">
+       {% include foot.html %}
+       </div>
+    </footer>
+</body>
+
 </html>
