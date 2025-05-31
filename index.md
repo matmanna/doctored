@@ -33,9 +33,4 @@ The theme was made by [me]() with heavy inspiration taken from [some blogs I lik
 
 ## When?
 
-The version of the site you're viewing now was 
-
-This is what a left-sidenote[<left] and a right-sidenote[>right] look like.
-
-[<left]: the syntax looks similar to...
-[>right]: ...regular markdown footnotes.
+The version of the site you're viewing now was built on {{ site.git.last_commit.commit_date }}

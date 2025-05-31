@@ -1,9 +1,12 @@
 title: Doctored
-description: "A Jekyll blog theme which prioritizes uniqueness, technical complexity, and minimalism."
+description: "A  blog theme prioritizing uniqueness, complexity, and minimalism."
+github: "https://github.com/joshpinto6/doctored"
 encoding: utf-8
 
 plugins:
   - jekyll-postcss
+  - jekyll-git_metadata
+  - kramdown-parser-gfm
 
 exclude: 
 - README.md
