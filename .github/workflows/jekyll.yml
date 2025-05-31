@@ -40,12 +40,18 @@ jobs:
         with:
           ruby-version: '3.3.4' # Not needed with a .ruby-version file
           cache-version: 1 # Increment this number if you need to re-download cached gems
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Authenticate with GitHub Package Registry
         run: |
           bundle config set --global \
             rubygems.pkg.github.com ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
-      - name: Install dependencies
-        run: bundle install
+      # - name: Install dependencies
+      #   run: bundle install
+      - name: Install Node Dependencies
+        run: npm ci
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
