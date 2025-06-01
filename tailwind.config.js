@@ -18,14 +18,14 @@ module.exports = {
         DEFAULT: {
           css: (theme) => ({
             a: {
-              color: theme('colors.primary.200'),
-              'text-decoration': 'underline',
-              'text-decoration-style': 'dotted',
+              color: theme('colors.primary.200') + ' !important',
+              'text-decoration': 'underline !important',
+              'text-decoration-style': 'dotted !important',
               '&:hover': {
-                color: theme('colors.primary.400'),
+                color: theme('colors.primary.400') + ' !important',
               },
               '@screen dark': {
-                color: theme('colors.primary.400'),
+                color: theme('colors.primary.400') + ' !important',
               },
             }
           }),

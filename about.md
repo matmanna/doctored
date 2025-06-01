@@ -13,27 +13,16 @@ description: Features of the Doctored Theme
 
 - UI modes and bold colorthemes
   - Dark/light/system mode toggle and dropdown
-  - Customizable color themes
-
-| ------------- | ------------- | ------------- | ------------- |
-| ![Teal Theme](/assets/colorthemes/teal.png) | ![Red Theme](/assets/colorthemes/red.png) | ![Orange Theme](orange.png) | ![alt text](image.png) |
-| Teal (Default)  | Red  | Orange  | Amber  |
-
-![alt text](image-1.png)
-
-![alt text](image-2.png)
-
-![alt text](image-3.png)
-
-![alt text](image-4.png)
-
-![alt text](image-5.png)
+  - Customizable color themes (22 [colors](tailwindcss.com/docs/colors)!)
 
 - Tailwind styling
 - FontAwesome icons
 - Homepage and About Page
 - Navbar and Footer
 - Git site statistics
+- Post Pages
+- 404 Page
+- GFM Admonitions
 
 ## Todo
 
@@ -50,7 +39,6 @@ stylistic features:
 - Live TOC
 - Heading link copiers
 - Post series' (with pages)
-- Admonitions
 - Dialogues
 - Code blocks with origins
   - Jekyll with Agda: https://github.com/paolobrasolin/jekyll-agda
@@ -58,7 +46,6 @@ stylistic features:
 
 metadata stuff:
 
-- 404 page
 - robots.txt
 - rss feed
 - sitemap.xml
