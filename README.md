@@ -10,7 +10,7 @@ A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
 ## 💬 About
 
-Made entirely by me using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide.
+Made entirely by me using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide and template.
 
 ## ⌨️ Usage
 

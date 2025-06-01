@@ -11,18 +11,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: colors.stone,
+      },
       typography: {
         DEFAULT: {
           css: (theme) => ({
             a: {
-              color: theme('colors.teal.200'),
+              color: theme('colors.primary.200'),
               'text-decoration': 'underline',
               'text-decoration-style': 'dotted',
               '&:hover': {
-                color: theme('colors.teal.400'),
+                color: theme('colors.primary.400'),
               },
               '@screen dark': {
-                color: theme('colors.teal.400'),
+                color: theme('colors.primary.400'),
               },
             }
           }),

@@ -10,7 +10,7 @@ a couple of _the_ most common questions you might have.
 
 ## What?
 
-- A blog theme which prioritizes uniqueness, technical complexity, and minimalism.
+- A blog theme which prioritizes uniqueness, technical complexity, and sophistication.
 
 - **For a full list of features, see [/about](/about).**
 
@@ -32,6 +32,8 @@ Right here, of course! But it can also be on your website: Instructions coming s
 ## Who?
 
 The theme was made by [me]() with heavy inspiration taken from [some blogs I like]() and [this blog post](https://danilafe.com/blog/blog_microfeatures/) by Daniel Fedorin on microfeatures.
+
+Also quite inspired by Mani Kumar's Xterm [theme](https://manid2.github.io/hugo-xterm/) for Hugo.
 
 ## When?
 
