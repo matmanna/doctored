@@ -1,10 +1,8 @@
 ---
-layout: default
+layout: page
 title: About
 description: Features of the Doctored Theme
 ---
-
-# About
 
 > [!WARNING]
 > The Doctored theme is still very much a work-in-progress, so expect breaking features and lots of bugs!
@@ -21,16 +19,16 @@ description: Features of the Doctored Theme
 - Navbar and Footer
 - Git site statistics
 - Post Pages
+- Blog Page
 - 404 Page
+- Now Page
+- Projects Page
 - GFM Admonitions
 
 ## Todo
 
 new pages
 
-- Blog
-- Projects Page
-- Now Page
 - Contact Form
 
 stylistic features:
