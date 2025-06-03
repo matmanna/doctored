@@ -1,5 +1,7 @@
 # 🎩 Doctored
 
+[![wakatime](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f57b75b4-8209-4d96-bb52-b673574bed86.svg)](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f57b75b4-8209-4d96-bb52-b673574bed86) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/joshpinto6/doctored/jekyll.yml)
+
 A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
 📱 **Demo Deployment:** https://joshpinto6.github.io/doctored
