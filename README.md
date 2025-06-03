@@ -6,11 +6,16 @@ A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
 ## 📸 Demo Image:
 
-![image](https://github.com/user-attachments/assets/9e6f8e02-e6d1-4128-9ad6-bff0b5d6b5cc)
+![image](https://github.com/user-attachments/assets/63dea5ba-0c15-4e69-bfd8-b0234f1ebe2f)
 
 ## 💬 About
 
-Made entirely by me using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide and template.
+Made entirely by me using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide and template. 
+
+Feature highlights:
+- 20+ color schemes
+- Dark/light mode
+- GFM support (tables, admonitions, etc.)
 
 ## ⌨️ Usage
 
