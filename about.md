@@ -24,6 +24,9 @@ description: Features of the Doctored Theme
 - Now Page
 - Projects Page
 - GFM Admonitions
+- RSS [feed]({{ '/feed.xml' | relative_url }})
+- [sitemap]({{ '/sitemap.xml' | relative_url }})
+
 
 ## Todo
 
@@ -37,7 +40,7 @@ stylistic features:
 - Live TOC
 - Heading link copiers
 - Post series' (with pages)
-- Dialogues
+- Dialogue
 - Code blocks with origins
   - Jekyll with Agda: https://github.com/paolobrasolin/jekyll-agda
 - Webrings
@@ -45,5 +48,3 @@ stylistic features:
 metadata stuff:
 
 - robots.txt
-- rss feed
-- sitemap.xml

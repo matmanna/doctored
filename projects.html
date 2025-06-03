@@ -12,7 +12,7 @@ description: My proudest projects and achievements
         <div class="flex flex-row gap-3 w-full rounded-t-md items-end px-4 py-2 bg-primary-300 dark:bg-primary-800">
             <h4 class="my-0 items-center text-md">
                 <i class="fa-solid fa-clipboard mr-2 text-primary-800 dark:text-primary-600 "></i>
-                <a href="{{ project.url }}">{{ project.title }}</a>
+                <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
             </h4>
         
         </div>

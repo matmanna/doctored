@@ -9,6 +9,8 @@ group :jekyll_plugins do
   gem "jekyll-postcss"
   gem 'kramdown-parser-gfm'
   gem "jekyll-gfm-admonitions"
+  gem "jekyll-sitemap"
+  gem 'jekyll-feed'
 end
 
 source "https://rubygems.pkg.github.com/joshpinto6" do
