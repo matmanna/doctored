@@ -1,11 +1,11 @@
 <div class="flex flex-row flex-wrap justify-between w-full gap-4">
   <div class="flex flex-row gap-1">
     {{site.data.nav.emoji}}
-    <a href="/"><h3 class="font-sans">{{ site.data.nav.title }}</h3></a>
+    <a href="{{ '/' | relative_url }}"><h3 class="font-sans">{{ site.data.nav.title }}</h3></a>
     </div>
       <ul class="flex flex-row flex-wrap space-x-4">
         {% for entry in site.data.nav.pages %}
-          <li><a href="{{ entry.url }}">/{{ entry.title }}</a></li>
+          <li><a href="{{ entry.url | relative_url }}">/{{ entry.title }}</a></li>
         {% endfor %}
         <li id="theme-toggle" class="dark:text-primary-400 text-primary-800 "></li>
       </ul>

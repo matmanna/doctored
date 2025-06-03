@@ -12,7 +12,7 @@ a couple of _the_ most common questions you might have.
 
 - A blog theme which prioritizes uniqueness, technical complexity, and sophistication.
 
-- **For a full list of features, see [/about](/about).**
+- **For a full list of features, see [/about]({{ '/about' | relative_url }}).**
 
 ## Why?
 

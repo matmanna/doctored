@@ -9,10 +9,10 @@ description: A collection of the latest posts and articles
 
 <ul class="px-0">
     {% for post in site.posts %}
-    <li class="rounded-md p-0 flex flex-col gap-2 bg-primary-700 outline-primary-900">
-        <div class="flex flex-row gap-3 w-full rounded-t-md items-center px-4 py-2 bg-primary-800">
-            <h4 class="my-0">
-                <a href="{{ post.url }}">{{ post.title }}</a>
+    <li class="rounded-md p-0 flex flex-col gap-2 dark:bg-primary-700 bg-primary-200 dark:outline-primary-900 outline-primary-200">
+        <div class="flex flex-row gap-3 w-full rounded-t-md items-end px-4 py-2 dark:bg-primary-800 bg-primary-300">
+            <h4 class="my-0 items-center">
+                <i class="fas fa-feather-pointed mr-2 dark:text-primary-600 text-primary-800"></i><a href="{{ post.url }}">{{ post.title }}</a>
             </h4>
             <p class="my-0 text-sm text-primary-500">
                 {{ post.date| date: "%m-%d-%Y" }}

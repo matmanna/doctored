@@ -19,14 +19,14 @@
         <ul class="flex flex-col space-y-4">
             <li class="font-bold">quick links</li>
             {% for entry in site.data.nav.pages %}
-            <li><a href="{{ entry.url }}">/{{ entry.title }}</a></li>
+            <li><a href="{{ entry.url | relative_url }}">/{{ entry.title }}</a></li>
             {% endfor %}
         </ul>
         <ul class="flex flex-col space-y-4">
             <li class="font-bold">socials</li>
 
             {% for social in site.data.foot.socials %}
-            <li><a href="{{ social.url }}">/{{ social.title }}</a></li>
+            <li><a href="{{ social.url | relative_url }}">/{{ social.title }}</a></li>
             {% endfor %}
         </ul>
 
