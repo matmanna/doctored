@@ -36,13 +36,10 @@ Made entirely by me using Jekyll and Tailwind following the [Tonic](https://toni
 | Now Page |
 | ![image](https://github.com/user-attachments/assets/271a300f-65e5-4a46-b62a-139ce1e5b0b9) | ![image](https://github.com/user-attachments/assets/c3c7bd74-ce5f-401f-983e-d9dc395efc16) |
 
-
-
-
 ## ⌨️ Usage
 
-> [!NOTE]
-> Developing a site with doctored requires having ruby, bundle, python, node.js, and npm installed. 
+> [!IMPORTANT]
+> Developing a site with doctored requires having Ruby, RubyGems, GCC, Make Bundle, Python, Node.js, and npm installed on your system.
 
 Run `npm install` and `npm run dev` to develop. Run `npm run build` to build. Postinstall and other scripts have been configured to use `bundle install`, `bundle exec jekyll serve --watch`, and `bundle exec jekyll build` respectively.
 
