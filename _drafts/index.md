@@ -12,6 +12,7 @@ a couple of _the_ most common questions <small>These are also some of the most c
 - A blog theme which prioritizes uniqueness, technical complexity, and sophistication<small>While sophist-ication may be redundant for complexity, it describes the the theme's vibe.</small>
 
 - **For a full list of features, see [/about]({{ '/about' | relative_url }}).**
+- **For code, usage instructions, and (limited) docs, see [:github]({{ site.github }}).**
 
 ## Why?
 
