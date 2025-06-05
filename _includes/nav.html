@@ -3,7 +3,7 @@
     {{site.data.nav.emoji}}
     <a href="{{ '/' | relative_url }}"><h3 class="font-sans">{{ site.data.nav.title }}</h3></a>
     </div>
-      <ul class="flex flex-row flex-wrap space-x-4">
+      <ul class="flex flex-row flex-wrap gap-4">
         {% for entry in site.data.nav.pages %}
           <li><a href="{{ entry.url | relative_url }}">/{{ entry.title }}</a></li>
         {% endfor %}

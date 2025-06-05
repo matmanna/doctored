@@ -5,8 +5,6 @@ description: Features of the Doctored Theme
 toc: false
 ---
 
-<!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
-
 > [!WARNING]
 > The Doctored theme is still very much a work-in-progress, so expect breaking features and lots of bugs!
 
@@ -61,5 +59,3 @@ stylistic features:
 metadata stuff:
 
 - robots.txt
-
-
