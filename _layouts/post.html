@@ -2,7 +2,9 @@
 layout: default
 ---
 
-<h1 >{{ page.title }}</h1>
+<h1>{{ page.title }}</h1>
+<p>{{ page.description }}</p>
+
 <div class="flex flex-row gap-4">
     <p class="my-0">On {{ page.date | date_to_string }} by</p>
     <a href="https://github.com/{{ page.author }}" class="flex flex-row items-center gap-2">

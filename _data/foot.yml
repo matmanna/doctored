@@ -12,14 +12,14 @@ pages:
   - title: contact
     url: '#contact'
 socials:
-  - title: twitter
-    url: https://x.com
   - title: github
     url: https://github.com
   - title: linkedin
     url: https://linkedin.com
   - title: hackernews
     url: https://news.ycombinator.com
+  - title: twitter
+    url: https://x.com
   - title: reddit
     url: https://reddit.com
  

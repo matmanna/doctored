@@ -18,7 +18,7 @@ description: A collection of the latest posts and articles
             </p>
         </div>
         <div class="flex flex-col gap-2 px-4 py-2 pt-0 text-sm">
-            {{ post.excerpt }}
+            {{ post.description | strip_html | truncate: 150 }}
         </div>
     </li>
     {% endfor %}

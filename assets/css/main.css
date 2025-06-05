@@ -58,7 +58,7 @@
     }
 
     small::before {
-        @apply border-primary-500 rounded-full mr-2 p-1 w-8 h-8 items-center text-center;
+        @apply border-primary-500 rounded-full mr-2 mt-1 p-1 w-8 h-8 items-center text-center;
         content: counter(sidenote-counter);
         float: left;
         border-style: solid;
