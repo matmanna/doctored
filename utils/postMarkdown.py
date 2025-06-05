@@ -1,57 +1,73 @@
 # Adapted from a script by @JacobU on GitHub:
 # https://github.com/JacobU/markdown-jekyll-preprocessor/blob/master/postMarkdown.py
 
+# Notes:
+### I modified it however so that footnotes, sidenotes and table of contents
+### can be disabled in the frontmatter of the markdown file.
+### Additionally, it now generates a "do not edit" comment at the top of the
+### file to prevent accidental edits and uses the _drafts directory.
+
 import sys
 import os
 import re
 
 DO_NOT_EDIT_COMMENT = "\n<!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->\n"
 
-def getSmall(read_file, write_file):
-    
+def getSmall(read_file, write_file, enable_sidenotes=True, enable_footnotes=True):
+    if not enable_sidenotes:
+        with open(read_file, "r") as rf, open(write_file, "w+") as wf:
+            wf.write(rf.read())
+        return
+
     with open(read_file, "r") as rf:
         with open(write_file, "w+") as wf:
-                if rf.mode == "r":
-                    lines = rf.readlines()
-                    count = 1
+            if rf.mode == "r":
+                lines = rf.readlines()
+                count = 1
 
-                    for x in lines:
-                        startIndex = 0
-                        endIndex = 0
-                        while startIndex < len(x):
-                            startIndex = x.find("<small>", startIndex)
-                            if startIndex == -1:
-                                break
-                            endIndex = x.find("</small>", startIndex)
-                            inside = x[startIndex + 7:endIndex]
+                for x in lines:
+                    startIndex = 0
+                    endIndex = 0
+                    while startIndex < len(x):
+                        startIndex = x.find("<small>", startIndex)
+                        if startIndex == -1:
+                            break
+                        endIndex = x.find("</small>", startIndex)
+                        inside = x[startIndex + 7:endIndex]
+                        if enable_footnotes:
                             wf.write("[^" + str(count) + "]: " + inside + "\n")
-                            count += 1
-                            startIndex = endIndex + 8
-                        
+                        count += 1
+                        startIndex = endIndex + 8
     rf.close()
     wf.close()
 
-def writeFootnote(read_file, write_file):
+def writeFootnote(read_file, write_file, enable_footnotes=True):
+    if not enable_footnotes:
+        with open(read_file, "r") as rf, open(write_file, "w+") as wf:
+            wf.write(rf.read())
+        return
 
     with open(read_file, "r") as rf:
         with open(write_file, "w+") as wf:
-                if rf.mode == "r":
-                    lines = rf.readlines()
-                    count = 1
+            if rf.mode == "r":
+                lines = rf.readlines()
+                count = 1
 
-                    for x in lines:
-                        index = 0
-                        while index < len(x):
-                            temp = index
-                            index = x.find("</small>", index)
-                            if index == -1:
-                                wf.write(x[temp:])
-                                break                        
+                for x in lines:
+                    index = 0
+                    while index < len(x):
+                        temp = index
+                        index = x.find("</small>", index)
+                        if index == -1:
+                            wf.write(x[temp:])
+                            break                        
 
-                            index += 8
-                            wf.write(x[temp:index] + "[^" + str(count) + "]")
-                            count += 1
-                wf.write("\n\n")
+                        index += 8
+                        wf.write(x[temp:index] + "[^" + str(count) + "]")
+                        count += 1
+            wf.write("\n\n")
+            wf.write("\n## Footnotes: \n")
+
     rf.close()
     wf.close()
 
@@ -82,16 +98,16 @@ def insert_do_not_edit_after_frontmatter(filepath):
                 f.truncate()
 
 def getHeaders(read_file, write_file):
-
     with open(read_file, "r") as rf:
         content = rf.read()
         frontmatter_match = re.search(r'---\s*(.*?)\s*---', content, re.DOTALL)
-        
-        if frontmatter_match and 'toc: false' in frontmatter_match.group(1):
+        frontmatter = frontmatter_match.group(1) if frontmatter_match else ""
+        enable_footnotes = 'footnotes: false' not in frontmatter
+        enable_sidenotes = 'sidenotes: false' not in frontmatter
 
+        if frontmatter_match and 'toc: false' in frontmatter:
             with open("temp1.txt", "w+") as ff:
                 ff.write(content)
-            
             with open("temp.txt", "w+") as wf:
                 pass
         else:
@@ -139,8 +155,8 @@ def getHeaders(read_file, write_file):
                                     ff.write(z)
 
     os.remove("temp.txt")
-    writeFootnote("temp1.txt", "temp2.txt")
-    getSmall("temp1.txt", "temp3.txt")
+    writeFootnote("temp1.txt", "temp2.txt", enable_footnotes=enable_footnotes)
+    getSmall("temp1.txt", "temp3.txt", enable_sidenotes=enable_sidenotes, enable_footnotes=enable_footnotes)
 
     filenames = ["temp2.txt", "temp3.txt"]
     with open(write_file, "w+") as outfile:
@@ -178,5 +194,5 @@ if __name__ == "__main__":
         sys.exit(0)
     else:
         read_file = sys.argv[1]
-        output_filename = os.path.basename(read_file)
-        getHeaders(read_file, output_filename)
+        output_filename = os.path.basename("_drafts/" + read_file)
+        getHeaders("_drafts/" + read_file, output_filename)

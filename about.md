@@ -3,6 +3,7 @@ layout: page
 title: About
 description: Features of the Doctored Theme
 toc: false
+footnotes: false
 ---
 
 <!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
@@ -62,4 +63,6 @@ metadata stuff:
 
 - robots.txt
 
+code/dx stuff:
 
+ - pnpm

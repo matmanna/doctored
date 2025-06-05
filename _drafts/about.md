@@ -3,6 +3,7 @@ layout: page
 title: About
 description: Features of the Doctored Theme
 toc: false
+footnotes: false
 ---
 
 > [!WARNING]
@@ -59,3 +60,7 @@ stylistic features:
 metadata stuff:
 
 - robots.txt
+
+code/dx stuff:
+
+ - pnpm
