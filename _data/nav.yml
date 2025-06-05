@@ -11,4 +11,4 @@ pages:
   - title: now
     url: /now
   - title: contact
-    url: /contact
+    url: "#contact"

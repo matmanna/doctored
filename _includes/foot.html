@@ -23,10 +23,10 @@
             {% endfor %}
         </ul>
         <ul class="flex flex-col space-y-4">
-            <li class="font-bold">socials</li>
+            <li class="font-bold" id="contact">socials</li>
 
             {% for social in site.data.foot.socials %}
-            <li><a href="{{ social.url | relative_url }}">/{{ social.title }}</a></li>
+            <li><a href="{{ social.url }}">:{{ social.title }}</a></li>
             {% endfor %}
         </ul>
 
