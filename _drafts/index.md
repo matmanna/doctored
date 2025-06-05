@@ -22,7 +22,7 @@ Because there is no theme quite like what I would want.
 Doctored uses the following technologies:
 
 1. Jekyll, which enables markdown-powered static sites
-2. Tailwind CSS<small>Using Node and PostCSS, this helped me strike a balance between maintainability and slimness.</small>, which makes styling so much easier!
+2. Tailwind CSS<small>Requiring node, this struck a balance between maintainability and bloat.</small>, which makes styling so much easier!
 
 ## Where?
 
