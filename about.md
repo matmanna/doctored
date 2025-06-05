@@ -20,6 +20,7 @@ markdown rendering:
 
 - Footnotes & Sidenotes
 - GFM Admonitions
+- Simple Table Of Contents
 
 site stuff:
 
@@ -38,7 +39,6 @@ site stuff:
 - Projects Page
 - RSS [feed]({{ '/feed.xml' | relative_url }})
 - [sitemap]({{ '/sitemap.xml' | relative_url }})
-
 
 ## Todo
 
