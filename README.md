@@ -16,6 +16,8 @@ Made entirely by me using Jekyll and Tailwind following the [Tonic](https://toni
 - Projects, blog, now, and contact pages
 - GFM support (tables, admonitions, etc.)
 - Git metadata access
+- Table of Contents (floating)
+- Responsive side & foot notes
 - RSS feed & sitemap
 - Responsive nav, footer sections
 

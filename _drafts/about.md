@@ -55,8 +55,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 
 ### site updates:
 - Webrings
-- Post series' (with pages)
-- Live TOC (shifts from top to side)
+- Post series (with pages)
 - Sticky header 
 
 ### metadata stuff:
