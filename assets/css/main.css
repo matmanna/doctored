@@ -62,8 +62,9 @@
         float: left;
         border-style: solid;
         border-width: 2px;
-    }  
-       .prose>h2,
+    }
+
+    .prose>h2,
     h3 {
         gap: 8px;
         display: flex;
@@ -71,5 +72,4 @@
     .prose > ul > li::marker {
         @apply text-primary-500;
     }
-    
 }

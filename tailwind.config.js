@@ -35,8 +35,8 @@ module.exports = {
     fontFamily: {
       display: ['LibertinusMonoMono'],
       sans: ['sans-serif'],
+      icon: ['FontAwesome'],
     },
-
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],
