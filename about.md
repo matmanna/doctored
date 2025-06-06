@@ -16,14 +16,14 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 
 ## Features
 
-markdown/post/page rendering:
+### markdown/post/page rendering:
 
 - Footnotes & Sidenotes
 - GFM Admonitions
-- Simple Table Of Contents
+- Live, Floating, linked Table Of Contents
 - Anchor links
 
-site stuff:
+### site stuff:
 
 - UI modes and bold colorthemes
   - Dark/light/system mode toggle and dropdown
@@ -43,25 +43,28 @@ site stuff:
 
 ## Todo
 
-new pages
+### new pages
 
 - Contact Form
 
-stylistic features:
+### post/page features:
 
-- Live TOC (shifts from top to side)
-- Post series' (with pages)
-- Dialogue
+- Mermaid diagrams
+- Dialogue chains
 - Code blocks (with origins)
   - GitHub gists?
   - Jekyll with Agda: https://github.com/paolobrasolin/jekyll-agda
-- Webrings
-- Mermaid diagrams
 
-metadata stuff:
+### site updates:
+- Webrings
+- Post series' (with pages)
+- Live TOC (shifts from top to side)
+- Sticky header 
+
+### metadata stuff:
 
 - robots.txt
 
-code/dx stuff:
+### code/dx stuff:
 
  - pnpm

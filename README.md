@@ -41,9 +41,13 @@ Made entirely by me using Jekyll and Tailwind following the [Tonic](https://toni
 > [!IMPORTANT]
 > Developing a site with doctored requires having Ruby, RubyGems, GCC, Make Bundle, Python, Node.js, and npm installed on your system.
 
+### ▶️ Running
+
 Run `npm install` and `npm run dev` to develop. Run `npm run build` to build. Postinstall and other scripts have been configured to use `bundle install`, `bundle exec jekyll serve --watch`, and `bundle exec jekyll build` respectively.
 
-To post a new post, run `npm run post markdown_file_path_in__drafts`, which formats it with side/foot notes & a table of contents then moves it to `_posts/` (or root if page!)
+### 🖼️ Formatting posts
+
+To post a new post, run `npm run post markdown_file_path_in__drafts`, which formats it with side/foot notes then moves it to `_posts/` (or root if page!)
 
 Based on [@JacobU](https://github.com/jacobu)'s `postMarkdown` python script, doctored supports writing your posts/pages in a simple markdown file within `_drafts` before running the `post` script to format it in the following ways:
 
@@ -53,7 +57,3 @@ Based on [@JacobU](https://github.com/jacobu)'s `postMarkdown` python script, do
   ```html
   <small>Richly-formatted (html) content of note</small>
   ```
-
-- **Table of contents:**
-
-  To disable a table of contents for a page/post, include `toc: false` in markdown frontmatter (enabled by default). This table of contents will be based on all the markdown headings (#, ##, ###, etc.) in your file.

@@ -13,9 +13,58 @@ layout: default
     </a>
 </div>
 
-<div class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 my-4">
+<div>
+<div id="table-of-contents" class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 my-4 w-full">
     <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
     {% include toc.html html=content %}
 </div>
+<div id="fake-table" class="hidden opacity-0 p-2 my-4 w-full">
+    <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
+    {% include toc.html html=content %}
+</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toc = document.getElementById('table-of-contents');
+        const fakeTOC = document.getElementById('fake-table');
+        const tocOffset = toc.offsetTop;
+        let isFixed = false;
+        
+        function toggleFixedPosition() {
+            if (window.innerWidth >= 1280) {
+                const shouldBeFixed = window.scrollY > (tocOffset + toc.offsetHeight);
+                
+                if (shouldBeFixed !== isFixed) {
+                    isFixed = shouldBeFixed;
+                    
+                    if (isFixed) {
+                        toc.style.position = 'fixed';
+                        toc.style.top = '25%';
+                        toc.style.left = '1rem';
+                        toc.style.maxWidth = '27ch';
+                        fakeTOC.style.display = 'block';
+                    } else {
+                        toc.style.position = '';
+                        toc.style.top = '';
+                        toc.style.left = '';
+                        toc.style.maxWidth = '';
+                        fakeTOC.style.display = 'none';
+                    }
+                }
+            } else if (isFixed) {
+                isFixed = false;
+                toc.style.position = '';
+                toc.style.top = '';
+                toc.style.left = '';
+                toc.style.maxWidth = '';
+            }
+        }
+        
+        window.addEventListener('scroll', toggleFixedPosition);
+        window.addEventListener('resize', toggleFixedPosition);
+        toggleFixedPosition();
+    });
+</script>
 
 {{ content }}

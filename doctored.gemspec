@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary = ""
   spec.homepage = ""
 
-  spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml|404\.md)!i) }
+  spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml|404\.md)ay!i) }
 
   spec.add_runtime_dependency "jekyll", ">= 3.9.0"
 
