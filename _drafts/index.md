@@ -2,7 +2,6 @@
 layout: page
 title: Welcome to my Theme
 description: The home page for the Doctored blog theme.
-toc: false
 ---
 
 a couple of _the_ most common questions <small>These are also some of the most common questions that <a href="https://en.wikipedia.org/wiki/Five_Ws">journalists</a> have!</small> you might have.

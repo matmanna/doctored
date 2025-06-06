@@ -2,7 +2,6 @@
 layout: page
 title: Welcome to my Theme
 description: The home page for the Doctored blog theme.
-toc: false
 ---
 
 <!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->

@@ -2,7 +2,6 @@
 layout: page
 title: About
 description: Features of the Doctored Theme
-toc: false
 footnotes: false
 ---
 
@@ -17,11 +16,12 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 
 ## Features
 
-markdown rendering:
+markdown/post/page rendering:
 
 - Footnotes & Sidenotes
 - GFM Admonitions
 - Simple Table Of Contents
+- Anchor links
 
 site stuff:
 
@@ -50,7 +50,6 @@ new pages
 stylistic features:
 
 - Live TOC (shifts from top to side)
-- Heading link copiers
 - Post series' (with pages)
 - Dialogue
 - Code blocks (with origins)

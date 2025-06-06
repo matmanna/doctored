@@ -13,4 +13,9 @@ layout: default
     </a>
 </div>
 
+<div class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 my-4">
+    <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
+    {% include toc.html html=content %}
+</div>
+
 {{ content }}

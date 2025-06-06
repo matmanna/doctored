@@ -69,16 +69,6 @@ def insert_do_not_edit_after_frontmatter(filepath):
             f.write(DO_NOT_EDIT_COMMENT + content)
             f.truncate()
 
-def generate_toc(lines):
-    toc_lines = ["\n"]
-    for x in lines:
-        if x.startswith("## "): toc_lines.append("- " + x[3:])
-        elif x.startswith("### "): toc_lines.append("\t- " + x[4:])
-        elif x.startswith("#### "): toc_lines.append("\t\t- " + x[5:])
-        elif x.startswith("##### "): toc_lines.append("\t\t\t- " + x[6:])
-    toc_lines.append("\n")
-    return toc_lines
-
 def getHeaders(read_file, write_file):
     with open(read_file, "r") as rf:
         content = rf.read()
@@ -91,11 +81,7 @@ def getHeaders(read_file, write_file):
     with open("temp1.txt", "w+") as ff:
         if not enable_toc:
             ff.write(content)
-        else:
-            with open(read_file, "r") as rf:
-                lines = rf.readlines()
-                toc_lines = generate_toc(lines)
-            
+        else:           
             count, numLines = 0, 0
             with open(read_file, "r") as rf:
                 lines = rf.readlines()
@@ -106,9 +92,6 @@ def getHeaders(read_file, write_file):
                         count += 1
                     if count == 2:
                         break
-                
-                for line in toc_lines:
-                    ff.write(line)
                 
                 for i, z in enumerate(lines):
                     if i >= numLines:
