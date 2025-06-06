@@ -12,7 +12,7 @@
   "scripts": {
     "postinstall": "bundle install",
     "dev": "bundle exec jekyll serve --watch",
-    "build": "bundle exec jekyll build",
+    "build": "python utils/postMarkdown.py && bundle exec jekyll build",
     "clean": "bundle exec jekyll clean",
     "doctor": "bundle exec jekyll doctor",
     "post": "python utils/postMarkdown.py"
