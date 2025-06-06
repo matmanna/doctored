@@ -14,55 +14,86 @@ layout: default
 </div>
 
 <div>
-<div id="table-of-contents" class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 my-4 w-full">
-    <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
-    {% include toc.html html=content %}
-</div>
-<div id="fake-table" class="hidden opacity-0 p-2 my-4 w-full xl:!hidden">
-    <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
-    {% include toc.html html=content %}
+<div id="toc-container" class="relative">
+  <div id="toc-placeholder" class="invisible my-4 w-full"></div>
+  <div id="table-of-contents" class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 w-full transition-all duration-300 ease-in-out">
+      <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
+      {% include toc.html html=content %}
+  </div>
 </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const toc = document.getElementById('table-of-contents');
-        const fakeTOC = document.getElementById('fake-table');
-        const tocOffset = toc.offsetTop;
+        const placeholder = document.getElementById('toc-placeholder');
+        const tocContainer = document.getElementById('toc-container');
+        let originalRect = null;
         let isFixed = false;
         
+        // Store the original position and dimensions
+        function updateOriginalPosition() {
+            toc.style.position = 'static';
+            toc.style.transform = 'none';
+            placeholder.style.display = 'none'; // Use display: none instead of visibility: hidden
+            
+            // Force a reflow to ensure we get the correct dimensions
+            void toc.offsetWidth;
+            
+            originalRect = toc.getBoundingClientRect();
+            placeholder.style.height = originalRect.height + 'px';
+        }
+        
         function toggleFixedPosition() {
+            if (!originalRect) {
+                updateOriginalPosition();
+            }
+            
             if (window.innerWidth >= 1280) {
-                const shouldBeFixed = window.scrollY > (tocOffset + toc.offsetHeight);
+                const shouldBeFixed = window.scrollY > tocContainer.offsetTop;
                 
                 if (shouldBeFixed !== isFixed) {
                     isFixed = shouldBeFixed;
                     
                     if (isFixed) {
+                        // Calculate the transform needed to move from original to fixed position
+                        const currentRect = toc.getBoundingClientRect();
+                        const fixedLeft = window.innerWidth * 0.025; // 2.5vw
+                        const fixedTop = -window.innerHeight * 0.30;  // Move to 15% of viewport height (higher up)
+                        
+                        const translateX = fixedLeft - currentRect.left;
+                        const translateY = fixedTop - currentRect.top;
+                        console.log(fixedTop)
+                        const scale = Math.min(27 * 16 / originalRect.width, 1); // 27ch approximated to pixels
+                        
                         toc.style.position = 'fixed';
-                        toc.style.top = '25%';
-                        toc.style.left = '2.5vw';
-                        toc.style.maxWidth = '27ch';
-                        fakeTOC.style.display = 'block';
+                        toc.style.width = originalRect.width + 'px';
+                        toc.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                        toc.style.transformOrigin = 'top left';
+                        placeholder.style.display = 'block'; // Use display: block instead of visibility: visible
                     } else {
-                        toc.style.position = '';
-                        toc.style.top = '';
-                        toc.style.left = '';
-                        toc.style.maxWidth = '';
-                        fakeTOC.style.display = 'none';
+                        toc.style.position = 'static';
+                        toc.style.width = 'auto';
+                        toc.style.transform = 'none';
+                        placeholder.style.display = 'none'; // Use display: none instead of visibility: hidden
                     }
                 }
             } else if (isFixed) {
                 isFixed = false;
-                toc.style.position = '';
-                toc.style.top = '';
-                toc.style.left = '';
-                toc.style.maxWidth = '';
+                toc.style.position = 'static';
+                toc.style.width = 'auto';
+                toc.style.transform = 'none';
+                placeholder.style.display = 'none'; // Use display: none instead of visibility: hidden
             }
         }
         
         window.addEventListener('scroll', toggleFixedPosition);
-        window.addEventListener('resize', toggleFixedPosition);
+        window.addEventListener('resize', function() {
+            updateOriginalPosition();
+            toggleFixedPosition();
+        });
+        
+        updateOriginalPosition();
         toggleFixedPosition();
     });
 </script>
