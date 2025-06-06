@@ -36,6 +36,7 @@ Right here, of course! But it can also be on your website: Instructions coming s
 - and [this blog post](https://danilafe.com/blog/blog_microfeatures/) by Daniel Fedorin on microfeatures.
 - Also quite inspired by Mani Kumar's Xterm [theme](https://manid2.github.io/hugo-xterm/) for Hugo.
 - Lastly, big thanks to [Kieren J. Underwood](https://github.com/JacobU/markdown-jekyll-preprocessor/tree/master), [Kaushik Gopal](https://kau.sh/blog/jekyll-footnote-tufte-sidenote/), and [Dave Liepmann](https://edwardtufte.github.io/tufte-css/) and for their contributions to markdown-based sidenotes for Jekyll (and the massively-inspiring Tufte CSS respectively)!
+- Several awesome jekyll pure-liquid snippets by [Vladimir Jimenez](https://github.com/allejo) [specifically: jekyll-yamlfy, jekyll-toc, and jekyll-anchor-headings]
 
 ## When?
 

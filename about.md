@@ -49,6 +49,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 
 ### post/page features:
 
+- Collapsible TOC
 - Mermaid diagrams
 - Dialogue chains
 - Code blocks (with origins)
@@ -56,7 +57,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
   - Jekyll with Agda: https://github.com/paolobrasolin/jekyll-agda
 
 ### site updates:
-- Webrings
+- Webring & 88x31 section
 - Post series (with pages)
 - Sticky header 
 

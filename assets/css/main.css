@@ -40,7 +40,7 @@
     }
 
     small {
-        @apply hidden mr-[-35%] xl:mr-[-60%] lg:block;
+        @apply hidden mr-[-35%] xl:mr-[-50%] lg:block;
         counter-increment: sidenote-counter;
         float: right;
         clear: right;

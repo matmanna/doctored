@@ -18,7 +18,7 @@ layout: default
     <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
     {% include toc.html html=content %}
 </div>
-<div id="fake-table" class="hidden opacity-0 p-2 my-4 w-full">
+<div id="fake-table" class="hidden opacity-0 p-2 my-4 w-full xl:!hidden">
     <p class="text-bold my-0 mt-2 ml-3">Table of Contents:</p>
     {% include toc.html html=content %}
 </div>
@@ -41,7 +41,7 @@ layout: default
                     if (isFixed) {
                         toc.style.position = 'fixed';
                         toc.style.top = '25%';
-                        toc.style.left = '1rem';
+                        toc.style.left = '2.5vw';
                         toc.style.maxWidth = '27ch';
                         fakeTOC.style.display = 'block';
                     } else {

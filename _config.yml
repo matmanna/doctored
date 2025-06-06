@@ -12,6 +12,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
+feed:
+  icon: /assets/images/favicon.png
+
 collections:
   projects:
     output: true
