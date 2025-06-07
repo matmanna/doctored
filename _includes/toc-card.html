@@ -1,11 +1,10 @@
 <div id="toc-container" class="relative pt-6">
   <div id="toc-placeholder" class="blur-sm my-4 rounded-md w-full bg-primary-300 dark:bg-primary-800"></div>
   <div id="table-of-contents" class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 w-full transition-all duration-100 ease-in-out">
-      <p class="font-bold my-0 mt-2 ml-3">Table of Contents:</p>
+      <h4 class="font-bold my-0 mt-2 ml-3"> {{ page.title }} </h4>
       {% include toc.html html=content anchor_class="toc-link" %}
   </div>
   
-  <!-- Quick navbar that will only show when TOC is floating -->
   <div id="toc-navbar" class="hidden bg-primary-300 dark:bg-primary-950 rounded-t-md p-2 w-full flex justify-between items-center opacity-0 transition-all duration-100 ease-in-out transform -translate-y-4">
     <div class="flex items-center gap-2">
       <span class="text-lg">{{ site.data.nav.emoji }}</span>
@@ -95,7 +94,7 @@
                         toc.style.borderTopRightRadius = '0';
                         placeholder.style.display = 'block';
                         
-                        tocNavbar.style.display = 'flex';
+                        tocNavbar.style.display = 'flex';  
                         tocNavbar.style.position = 'fixed';
                         tocNavbar.style.top = (targetPosition.y - tocNavbar.offsetHeight) + 'px';
                         tocNavbar.style.left = targetPosition.x + 'px';
@@ -105,31 +104,28 @@
                         
                         void tocNavbar.offsetWidth;
                         
-                        toc.style.transform = 'translateY(0)';
-                        
                         requestAnimationFrame(() => {
                             tocNavbar.style.opacity = '1';
                             tocNavbar.style.transform = 'translateY(0)';
                         });
+                        
                     } else {
-                        placeholder.style.display = 'none';
-                        
-                        toc.style.opacity = '1';
-                        toc.style.transform = 'translateY(0)';
-                        toc.style.position = 'static';
-                        toc.style.top = '';
-                        toc.style.left = '';
-                        toc.style.width = '';
-                        toc.style.maxWidth = '';
-                        toc.style.borderTopLeftRadius = '';
-                        toc.style.borderTopRightRadius = '';
-                        
                         tocNavbar.style.opacity = '0';
                         tocNavbar.style.transform = 'translateY(-16px)';
                         
+                        placeholder.style.display = 'none';
+                        
                         setTimeout(() => {
+                            toc.style.position = 'static';
+                            toc.style.top = '';
+                            toc.style.left = '';
+                            toc.style.width = '';
+                            toc.style.maxWidth = '';
+                            toc.style.borderTopLeftRadius = '';
+                            toc.style.borderTopRightRadius = '';
+                            
                             tocNavbar.style.display = 'none';
-                        }, 300);
+                        }, 100);
                     }
                 }
             } else if (isFixed) {
@@ -152,6 +148,15 @@
                 ticking = true;
             }
         });
+        
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                toggleFixedPosition();
+            }, 50);
+        }, { passive: true });
+        
         window.addEventListener('resize', function() {
             updateOriginalPosition();
             toggleFixedPosition();
