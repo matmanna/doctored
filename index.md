@@ -6,7 +6,7 @@ description: The home page for the Doctored blog theme.
 
 <!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
 
-a couple of _the_ most common questions <small>These are also some of the most common questions that <a href="https://en.wikipedia.org/wiki/Five_Ws">journalists</a> have!</small>[^1] you might have.
+a couple of _the_ most common questions<small>These are also some of the most common questions that <a href="https://en.wikipedia.org/wiki/Five_Ws">journalists</a> have!</small>[^1] you might have.
 
 ## What?
 

@@ -12,7 +12,9 @@ layout: default
         @{{ page.author }}
     </a>
 </div>
-{% include toc-card.html html=content %}
+{% if page.toc != false %}
+    {% include toc-card.html html=content %}
+{% endif %}
 <div>
 
 </div>

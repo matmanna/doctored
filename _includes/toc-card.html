@@ -39,6 +39,7 @@
         
         function updateOriginalPosition() {
             toc.style.position = 'static';
+            toc.querySelector('h4').innerHTML = 'Table of Contents:';
             toc.style.transform = 'none';
             placeholder.style.display = 'none';
             tocNavbar.style.display = 'none';
@@ -82,6 +83,7 @@
                             fixedLeft = viewportWidth * 0.03;
                             maxWidth = Math.min(350, viewportWidth * 0.2);
                         }
+                        toc.querySelector('h4').innerHTML = '{{ page.title }}';
                         
                         targetPosition.x = fixedLeft;
                         targetPosition.width = maxWidth;
@@ -113,25 +115,21 @@
                         tocNavbar.style.opacity = '0';
                         tocNavbar.style.transform = 'translateY(-16px)';
                         
-                        // Don't hide the placeholder until animation completes
-                        // This prevents the content from jumping
                         
                         setTimeout(() => {
-                            // First, position the TOC at the placeholder's location
-                            toc.style.position = 'absolute'; // Use absolute first instead of static
+                            toc.style.position = 'absolute'; 
                             toc.style.top = placeholder.offsetTop + 'px';
                             toc.style.left = '';
                             toc.style.width = '';
                             toc.style.maxWidth = '';
+                            toc.querySelector('h4').innerHTML = 'Table of Contents:';
                             toc.style.borderTopLeftRadius = '';
                             toc.style.borderTopRightRadius = '';
                             
                             tocNavbar.style.display = 'none';
                             
-                            // Force a reflow before removing the placeholder
                             void toc.offsetWidth;
                             
-                            // Now we can hide the placeholder and restore static positioning
                             setTimeout(() => {
                                 placeholder.style.display = 'none';
                                 toc.style.position = 'static';
