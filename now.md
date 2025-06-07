@@ -15,3 +15,7 @@ This is a now page, telling you what I'm doing right now.
 ### Writing/Creating
 
 ### Thinking About
+
+
+
+## Footnotes 

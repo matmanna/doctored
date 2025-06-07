@@ -1,0 +1,176 @@
+<div id="toc-container" class="relative pt-6">
+  <div id="toc-placeholder" class="blur-sm my-4 rounded-md w-full bg-primary-300 dark:bg-primary-800"></div>
+  <div id="table-of-contents" class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 w-full transition-all duration-100 ease-in-out">
+      <p class="font-bold my-0 mt-2 ml-3">Table of Contents:</p>
+      {% include toc.html html=content anchor_class="toc-link" %}
+  </div>
+  
+  <!-- Quick navbar that will only show when TOC is floating -->
+  <div id="toc-navbar" class="hidden bg-primary-300 dark:bg-primary-950 rounded-t-md p-2 w-full flex justify-between items-center opacity-0 transition-all duration-100 ease-in-out transform -translate-y-4">
+    <div class="flex items-center gap-2">
+      <span class="text-lg">{{ site.data.nav.emoji }}</span>
+      <span class="font-bold">{{ site.data.nav.title }}</span>
+    </div>
+    <div class="relative group">
+      <button class="flex items-center gap-1 px-2 py-1 rounded hover:bg-primary-400 dark:hover:bg-primary-700 transition-colors">
+        Navigate <i class="fa-solid fa-chevron-down text-xs"></i>
+      </button>
+      <div class="absolute right-0 mt-0 w-40 bg-white dark:bg-primary-900 rounded-md shadow-lg overflow-hidden z-10 hidden group-hover:block">
+        <div class="py-1">
+          {% for page in site.data.nav.pages %}
+            <a href="{{ page.url | relative_url }}" class="block px-4 py-2 text-sm hover:bg-primary-200 dark:hover:bg-primary-700">
+              /{{ page.title }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toc = document.getElementById('table-of-contents');
+        const tocNavbar = document.getElementById('toc-navbar');
+        const placeholder = document.getElementById('toc-placeholder');
+        const tocContainer = document.getElementById('toc-container');
+        let originalRect = null;
+        let isFixed = false;
+        let targetPosition = { x: 0, y: 0, scale: 1 };
+        
+        function updateOriginalPosition() {
+            toc.style.position = 'static';
+            toc.style.transform = 'none';
+            placeholder.style.display = 'none';
+            tocNavbar.style.display = 'none';
+            
+            void toc.offsetWidth;
+            
+            originalRect = toc.getBoundingClientRect();
+            placeholder.style.height = originalRect.height + 'px';
+            
+            // Fixed position for the TOC - only the fixed Y position is set here
+            const fixedTop = 80; // Fixed pixels from top
+            
+            // Initialize target position - without scale
+            targetPosition = {
+                x: 0, // Will be calculated when scrolled
+                y: fixedTop, // Fixed pixels from top
+                width: originalRect.width // Original width, to be modified when scrolled
+            };
+        }
+        
+        function toggleFixedPosition() {
+            if (!originalRect) {
+                updateOriginalPosition();
+            }
+            
+            if (window.innerWidth >= 1280) {
+                const shouldBeFixed = window.scrollY > (tocContainer.offsetTop - 5);
+                
+                if (shouldBeFixed !== isFixed) {
+                    isFixed = shouldBeFixed;
+                    
+                    if (isFixed) {
+                        // Calculate adaptive width only when scrolled
+                        const viewportWidth = window.innerWidth;
+                        let fixedLeft, maxWidth;
+                        
+                        if (viewportWidth > 1600) {
+                            fixedLeft = viewportWidth * 0.03;
+                            maxWidth = Math.min(450, viewportWidth * 0.25); // Wider for larger screens
+                        } else if (viewportWidth > 1280) {
+                            fixedLeft = viewportWidth * 0.025;
+                            maxWidth = Math.min(400, viewportWidth * 0.22); // Wider for medium screens
+                        } else {
+                            fixedLeft = viewportWidth * 0.03;
+                            maxWidth = Math.min(350, viewportWidth * 0.2); // Wider for smaller screens
+                        }
+                        
+                        // Update target position with current values
+                        targetPosition.x = fixedLeft;
+                        targetPosition.width = maxWidth;
+                        
+                        // Prepare both elements before showing them
+                        // First, position both elements correctly but keep navbar hidden
+                        toc.style.position = 'fixed';
+                        toc.style.top = targetPosition.y + 'px';
+                        toc.style.left = targetPosition.x + 'px';
+                        toc.style.width = targetPosition.width + 'px';
+                        toc.style.borderTopLeftRadius = '0';
+                        toc.style.borderTopRightRadius = '0';
+                        placeholder.style.display = 'block';
+                        
+                        tocNavbar.style.display = 'flex';
+                        tocNavbar.style.position = 'fixed';
+                        tocNavbar.style.top = (targetPosition.y - tocNavbar.offsetHeight) + 'px';
+                        tocNavbar.style.left = targetPosition.x + 'px';
+                        tocNavbar.style.width = targetPosition.width + 'px';
+                        tocNavbar.style.opacity = '0';
+                        tocNavbar.style.transform = 'translateY(-16px)';
+                        
+                        // Force a reflow to ensure styles are applied before animation
+                        void tocNavbar.offsetWidth;
+                        
+                        // Now animate both elements together
+                        toc.style.transform = 'translateY(0)';
+                        
+                        // Animate navbar with a very short delay to ensure it shows
+                        requestAnimationFrame(() => {
+                            tocNavbar.style.opacity = '1';
+                            tocNavbar.style.transform = 'translateY(0)';
+                        });
+                    } else {
+                        // Immediately change visibility state to improve responsiveness
+                        placeholder.style.display = 'none';
+                        
+                        // Animate the TOC back to its original position
+                        toc.style.opacity = '1';
+                        toc.style.transform = 'translateY(0)';
+                        toc.style.position = 'static';
+                        toc.style.top = '';
+                        toc.style.left = '';
+                        toc.style.width = '';
+                        toc.style.maxWidth = '';
+                        toc.style.borderTopLeftRadius = '';
+                        toc.style.borderTopRightRadius = '';
+                        
+                        // Reset navbar with animation
+                        tocNavbar.style.opacity = '0';
+                        tocNavbar.style.transform = 'translateY(-16px)';
+                        
+                        setTimeout(() => {
+                            tocNavbar.style.display = 'none';
+                        }, 300);
+                    }
+                }
+            } else if (isFixed) {
+                isFixed = false;
+                toc.style.position = 'static';
+                toc.style.width = 'auto';
+                toc.style.transform = 'none';
+                placeholder.style.display = 'none';
+                tocNavbar.style.display = 'none';
+            }
+        }
+        
+        // Use requestAnimationFrame for smoother scrolling detection
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    toggleFixedPosition();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        window.addEventListener('resize', function() {
+            updateOriginalPosition();
+            toggleFixedPosition();
+        });
+        
+        updateOriginalPosition();
+        toggleFixedPosition();
+    });
+</script>

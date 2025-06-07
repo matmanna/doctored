@@ -50,7 +50,7 @@ def writeFootnote(read_file, write_file, enable_footnotes=True):
                 index += 8
                 wf.write(x[temp:index] + "[^" + str(count) + "]")
                 count += 1
-        wf.write("\n\n\n## Footnotes: \n")
+        wf.write("\n\n\n## Footnotes \n")
 
 def insert_do_not_edit_after_frontmatter(filepath):
     with open(filepath, "r+") as f:
@@ -74,7 +74,7 @@ def getHeaders(read_file, write_file):
         content = rf.read()
         frontmatter_match = re.search(r'---\s*(.*?)\s*---', content, re.DOTALL)
         frontmatter = frontmatter_match.group(1) if frontmatter_match else ""
-        enable_footnotes = 'footnotes: false' not in frontmatter
+        enable_footnotes = True
         enable_sidenotes = 'sidenotes: false' not in frontmatter
         enable_toc = 'toc: false' not in frontmatter and frontmatter_match
 

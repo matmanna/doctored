@@ -43,7 +43,7 @@ Right here, of course! But it can also be on your website: Instructions coming s
 The version of the site you're viewing now was built on {{ site.git.last_commit.commit_date }}
 
 
-## Footnotes: 
+## Footnotes 
 [^1]: These are also some of the most common questions that <a href="https://en.wikipedia.org/wiki/Five_Ws">journalists</a> have!
 [^2]: While this could be redundant, it describes the the theme's vibe.
 [^3]: Requiring node, this struck a balance between maintainability and bloat.

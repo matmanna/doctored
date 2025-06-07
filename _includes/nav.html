@@ -5,7 +5,13 @@
     </div>
       <ul class="flex flex-row flex-wrap gap-4">
         {% for entry in site.data.nav.pages %}
-          <li><a href="{{ entry.url | relative_url }}">/{{ entry.title }}</a></li>
+          <li>
+            <a href="{{ entry.url | relative_url }}" 
+              {% if page.url == entry.url or (page.url == '/' and entry.url == '/') %}
+                class="font-bold"
+              {% endif %}
+            >/{{ entry.title }}</a>
+          </li>
         {% endfor %}
         <li id="theme-toggle" class="dark:text-primary-400 text-primary-800 "></li>
       </ul>

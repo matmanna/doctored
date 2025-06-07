@@ -60,6 +60,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 - Webring & 88x31 section
 - Post series (with pages)
 - Sticky header 
+- Scroll to Top button
 
 ### metadata stuff:
 
@@ -68,3 +69,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 ### code/dx stuff:
 
  - pnpm
+
+
+
+## Footnotes 

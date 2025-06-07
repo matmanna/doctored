@@ -30,6 +30,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 - FontAwesome icons
 - Homepage and About Page
 - Navbar and Footer
+- Sticky header on posts
 - Git site statistics
 - Post Pages
 - Blog Page
@@ -57,7 +58,7 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
 ### site updates:
 - Webring & 88x31 section
 - Post series (with pages)
-- Sticky header 
+- Scroll to Top button
 
 ### metadata stuff:
 

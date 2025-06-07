@@ -15,6 +15,9 @@ plugins:
 feed:
   icon: /assets/images/favicon.png
 
+redcarpet:
+  extensions: ["with_toc_data"]
+
 collections:
   projects:
     output: true
