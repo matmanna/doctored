@@ -49,14 +49,12 @@
             originalRect = toc.getBoundingClientRect();
             placeholder.style.height = originalRect.height + 'px';
             
-            // Fixed position for the TOC - only the fixed Y position is set here
-            const fixedTop = 80; // Fixed pixels from top
+            const fixedTop = 80;
             
-            // Initialize target position - without scale
             targetPosition = {
-                x: 0, // Will be calculated when scrolled
-                y: fixedTop, // Fixed pixels from top
-                width: originalRect.width // Original width, to be modified when scrolled
+                x: 0,
+                y: fixedTop,
+                width: originalRect.width
             };
         }
         
@@ -72,27 +70,23 @@
                     isFixed = shouldBeFixed;
                     
                     if (isFixed) {
-                        // Calculate adaptive width only when scrolled
                         const viewportWidth = window.innerWidth;
                         let fixedLeft, maxWidth;
                         
                         if (viewportWidth > 1600) {
                             fixedLeft = viewportWidth * 0.03;
-                            maxWidth = Math.min(450, viewportWidth * 0.25); // Wider for larger screens
+                            maxWidth = Math.min(450, viewportWidth * 0.25);
                         } else if (viewportWidth > 1280) {
                             fixedLeft = viewportWidth * 0.025;
-                            maxWidth = Math.min(400, viewportWidth * 0.22); // Wider for medium screens
+                            maxWidth = Math.min(400, viewportWidth * 0.22);
                         } else {
                             fixedLeft = viewportWidth * 0.03;
-                            maxWidth = Math.min(350, viewportWidth * 0.2); // Wider for smaller screens
+                            maxWidth = Math.min(350, viewportWidth * 0.2);
                         }
                         
-                        // Update target position with current values
                         targetPosition.x = fixedLeft;
                         targetPosition.width = maxWidth;
                         
-                        // Prepare both elements before showing them
-                        // First, position both elements correctly but keep navbar hidden
                         toc.style.position = 'fixed';
                         toc.style.top = targetPosition.y + 'px';
                         toc.style.left = targetPosition.x + 'px';
@@ -109,22 +103,17 @@
                         tocNavbar.style.opacity = '0';
                         tocNavbar.style.transform = 'translateY(-16px)';
                         
-                        // Force a reflow to ensure styles are applied before animation
                         void tocNavbar.offsetWidth;
                         
-                        // Now animate both elements together
                         toc.style.transform = 'translateY(0)';
                         
-                        // Animate navbar with a very short delay to ensure it shows
                         requestAnimationFrame(() => {
                             tocNavbar.style.opacity = '1';
                             tocNavbar.style.transform = 'translateY(0)';
                         });
                     } else {
-                        // Immediately change visibility state to improve responsiveness
                         placeholder.style.display = 'none';
                         
-                        // Animate the TOC back to its original position
                         toc.style.opacity = '1';
                         toc.style.transform = 'translateY(0)';
                         toc.style.position = 'static';
@@ -135,7 +124,6 @@
                         toc.style.borderTopLeftRadius = '';
                         toc.style.borderTopRightRadius = '';
                         
-                        // Reset navbar with animation
                         tocNavbar.style.opacity = '0';
                         tocNavbar.style.transform = 'translateY(-16px)';
                         
@@ -154,7 +142,6 @@
             }
         }
         
-        // Use requestAnimationFrame for smoother scrolling detection
         let ticking = false;
         window.addEventListener('scroll', function() {
             if (!ticking) {
