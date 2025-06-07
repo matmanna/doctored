@@ -1,5 +1,5 @@
 <div id="toc-container" class="relative pt-6">
-  <div id="toc-placeholder" class="blur-sm my-4 rounded-md w-full bg-primary-300 dark:bg-primary-800"></div>
+  <div id="toc-placeholder" class="blur-sm my-4 rounded-md w-full bg-primary-200 dark:bg-primary-800"></div>
   <div id="table-of-contents" class="bg-primary-200 dark:bg-primary-800 rounded-md p-2 w-full transition-all duration-100 ease-in-out">
       <h4 class="font-bold my-0 mt-2 ml-3"> {{ page.title }} </h4>
       {% include toc.html html=content anchor_class="toc-link" %}
@@ -113,11 +113,13 @@
                         tocNavbar.style.opacity = '0';
                         tocNavbar.style.transform = 'translateY(-16px)';
                         
-                        placeholder.style.display = 'none';
+                        // Don't hide the placeholder until animation completes
+                        // This prevents the content from jumping
                         
                         setTimeout(() => {
-                            toc.style.position = 'static';
-                            toc.style.top = '';
+                            // First, position the TOC at the placeholder's location
+                            toc.style.position = 'absolute'; // Use absolute first instead of static
+                            toc.style.top = placeholder.offsetTop + 'px';
                             toc.style.left = '';
                             toc.style.width = '';
                             toc.style.maxWidth = '';
@@ -125,6 +127,15 @@
                             toc.style.borderTopRightRadius = '';
                             
                             tocNavbar.style.display = 'none';
+                            
+                            // Force a reflow before removing the placeholder
+                            void toc.offsetWidth;
+                            
+                            // Now we can hide the placeholder and restore static positioning
+                            setTimeout(() => {
+                                placeholder.style.display = 'none';
+                                toc.style.position = 'static';
+                            }, 50);
                         }, 100);
                     }
                 }
