@@ -9,9 +9,4 @@ skills:
   - name: Quantum Mechanics
 ---
 
-<!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
-
 The final work for my degree
-
-
-## Footnotes 

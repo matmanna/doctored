@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+<p>{{ page.description }}</p>
+<div class="rounded-md bg-primary-300 dark:bg-primary-800 p-4 mb-4">
+    <ul class="my-0">
+        <li>
+            <div class="flex flex-row gap-2 items-center">
+                <p class="my-0 mr-1">Skills: </p>
+                {% for skill in page.skills %}
+                <div
+                    class="bg-primary-500 dark:bg-primary-900 text-sm py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit">
+                    <i class="{{ skill.icon }}"></i>{{ skill.name }}
+                </div>
+                {% endfor %}
+            </div>
+        </li>
+
+        <li>
+            <div class="flex flex-row items-center gap-3"><i class="fas fa-link"></i><a href="{{ page.website }}">Visit
+                    the website</a></div>
+        </li>
+
+        <li>
+            <div class="flex flex-row items-center gap-3"><i class="fa-brands fa-youtube"></i><a
+                    href="{{ page.video }}">Watch the recap</a></div>
+        </li>
+    </ul>
+</div>
+
+{{ content }}

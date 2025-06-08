@@ -13,9 +13,4 @@ skills:
 description: A competition I won with a team
 ---
 
-<!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
-
 This was super cool.
-
-
-## Footnotes 
