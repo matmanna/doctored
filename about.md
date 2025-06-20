@@ -116,7 +116,3 @@ The idea for doctored was taken from seeing so many amazing blogs which have the
     - tabs/language (blog/posts/updates/talks/notes/now/projects/contact/about)
     - topbar vs sidebar
 - GitHub-wiki-based documentation of all config options
-
-
-
-## Footnotes 
