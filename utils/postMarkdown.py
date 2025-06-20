@@ -98,7 +98,6 @@ def getHeaders(read_file, write_file):
                     if i >= numLines:
                         ff.write(z)
 
-    print(read_file,enable_footnotes)
     writeFootnote("temp1.txt", "temp2.txt", enable_footnotes)
     getSmall("temp1.txt", "temp3.txt", enable_sidenotes, enable_footnotes)
 
