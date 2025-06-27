@@ -1,0 +1,53 @@
+name: Ruby Gem
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "maim" ]
+
+jobs:
+  build:
+    name: Build + Publish
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-24.04 ]
+        ruby: [ruby-3.3.4]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    
+    - uses: actions/checkout@v4
+    - name: Set up Ruby 2.6
+      id: ruby
+      run: |
+        ruby=${{ matrix.ruby }}
+        if [[ "$ruby" == [0-9]* ]]; then
+          ruby="ruby-$ruby"
+        fi
+        echo "ruby=$ruby" >> $GITHUB_OUTPUT
+        echo "archive=$ruby-${{ steps.platform.outputs.platform }}.tar.gz" >> $GITHUB_OUTPUT
+
+    - name: Publish to GPR
+      run: |
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+        gem build *.gemspec
+        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+      env:
+        GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+        OWNER: ${{ github.repository_owner }}
+      
+    - name: Publish to RubyGems
+      if: contains(github.ref, 'refs/tags/v')
+      uses: cadwallion/publish-rubygems-action@master
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        RUBYGEMS_API_KEY: ${{secrets.RUBYGEMzS_API_KEY}}
+        RELEASE_COMMAND: rake release

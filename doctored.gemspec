@@ -2,13 +2,15 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name = "tonic-starter"
+  spec.name = "doctored"
   spec.version = "0.1.0"
-  spec.authors = [""]
+  spec.authors = ["joshpinto6"]
   spec.email = [""]
+  spec.license = "MIT"
 
-  spec.summary = ""
-  spec.homepage = ""
+  spec.summary = "🎩 A blog theme prioritizing uniqueness, complexity, and sophistication. "
+  spec.description = " Doctored is a jekyll theme built with tailwind CSS which enables the ceration of static, yet highly advanced, blogs, digital gardens, documentation, and portfolio websites."
+  spec.homepage = "https://joshpinto6.github.io/doctored"
 
   spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml|404\.md)ay!i) }
 
