@@ -45,7 +45,6 @@ jobs:
         OWNER: ${{ github.repository_owner }}
       
     - name: Publish to RubyGems
-      if: contains(github.ref, 'refs/tags/v')
       uses: cadwallion/publish-rubygems-action@master
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
