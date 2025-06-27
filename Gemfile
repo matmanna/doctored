@@ -11,8 +11,5 @@ group :jekyll_plugins do
   gem "jekyll-gfm-admonitions"
   gem "jekyll-sitemap"
   gem 'jekyll-feed'
+  gem 'jekyll-git'
 end
-
-source "https://rubygems.pkg.github.com/joshpinto6" do
-  gem "jekyll-git_metadata"
-end 
