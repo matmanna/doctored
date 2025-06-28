@@ -21,6 +21,9 @@ redcarpet:
 collections:
   projects:
     output: true
+  pages:
+    permalink: /:title/
+    output: true
 
 exclude: 
 - README.md
