@@ -4,7 +4,7 @@
 Gem::Specification.new do |spec|
   spec.name = "doctored"
   spec.version = "0.1.0"
-  spec.authors = ["joshpinto6"]
+  spec.authors = ["matmanna"]
   spec.email = [""]
   spec.license = "MIT"
 
