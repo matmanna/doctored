@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Competition
-collaborators: joshpinto6
+collaborators: matmanna
 website: https://example.com
 skills:
   - name: Javascript
