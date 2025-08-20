@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Research Thesis
-collaborators: joshpinto6
+collaborators: matmanna
 website: https://example.com
 description: The final work for my degree
 skills:
