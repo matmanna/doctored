@@ -7,7 +7,7 @@ A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
 📱 **Demo Deployment:** https://matmanna.github.io/doctored
 
-## 💬 About
+## 🌟 Overview
 
 Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide and [template](https://github.com/hackclub/tonic-starter). No other jekyll theme really felt like it matched what I would have wanted so I created my own!
 
@@ -17,13 +17,16 @@ Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com)
 - Projects, blog, now, and contact pages
 - GFM support (tables, admonitions, etc.)
 - Git metadata access
-- Table of Contents (floating)
+- Floating Table of Contents
 - Side & foot notes
 - RSS feed & sitemap
 - Responsive nav, footer sections
 
 ## 📸 Demo Images:
 
+| <img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/a130fd59-c673-4f4a-a676-3fd0bfb2473b" /> | <img width="1914" height="1018" alt="image" src="https://github.com/user-attachments/assets/2eeb6c33-fe38-46a4-8d54-c1fad985ed3b" /> |
+| ----- | ---- |
+| <img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/0919fd1d-2ed2-4ded-829a-6b504f939515" /> | <img width="1917" height="1014" alt="image" src="https://github.com/user-attachments/assets/dadb5548-a2c0-4f22-a2e1-6b2f67bd29f9" /> |
 
 
 
