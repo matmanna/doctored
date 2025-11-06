@@ -10,6 +10,7 @@ group :jekyll_plugins do
   gem 'kramdown-parser-gfm'
   gem "jekyll-gfm-admonitions"
   gem "jekyll-sitemap"
+  gem 'jekyll-git_metadata'
   gem 'jekyll-feed'
   gem 'jekyll-git'
 end
