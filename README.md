@@ -1,11 +1,12 @@
 # 🎩 Doctored
 
 [![wakatime](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f57b75b4-8209-4d96-bb52-b673574bed86.svg)](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f57b75b4-8209-4d96-bb52-b673574bed86) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/matmanna/doctored/jekyll.yml)
 
 A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
-📱 **Demo Deployment:** https://matmanna.github.io/doctored
+**Demo Deployment:** https://matmanna.github.io/doctored
 
 ## 🌟 Overview
 
@@ -28,8 +29,6 @@ Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com)
 | ----- | ---- |
 | <img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/0919fd1d-2ed2-4ded-829a-6b504f939515" /> | <img width="1917" height="1014" alt="image" src="https://github.com/user-attachments/assets/dadb5548-a2c0-4f22-a2e1-6b2f67bd29f9" /> |
 
-
-
 ## ⌨️ Usage
 
 > [!IMPORTANT]
@@ -51,3 +50,11 @@ Based on [@JacobU](https://github.com/jacobu)'s `postMarkdown` python script, do
   ```html
   <small>Richly-formatted (html) content of note</small>
   ```
+
+## 🙌 Contributing
+
+Please create Issues and PRs for bugs/feature requests and updated code respectively. 
+
+### 📜 License
+
+Doctored is licensed under the MIT, which means you can do (almost) anything with it!!
