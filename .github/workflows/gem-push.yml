@@ -49,4 +49,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         RUBYGEMS_API_KEY: ${{secrets.RUBYGEMzS_API_KEY}}
-        RELEASE_COMMAND: rake release
