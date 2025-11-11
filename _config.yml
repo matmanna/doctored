@@ -5,12 +5,11 @@ url: "https://matmanna.github.io/doctored"
 encoding: utf-8
 
 plugins:
-  - jekyll-postcss
-  - jekyll-git_metadata
   - kramdown-parser-gfm
   - jekyll-gfm-admonitions
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-git
 
 feed:
   icon: /assets/images/favicon.png
@@ -37,6 +36,8 @@ exclude:
 - node_modules
 - package-lock.json
 - postcss.config.js
+- tailwind.config.js
+- .github
 
 sass:
   sourcemap: never

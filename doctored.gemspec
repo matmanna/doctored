@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "doctored"
-  spec.version = "0.1.4"
+  spec.version = "0.1.6"
   spec.authors = ["matmanna"]
   spec.email = [""]
   spec.license = "MIT"
@@ -14,16 +14,14 @@ Gem::Specification.new do |spec|
 
   spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml|404\.md|package\.json|postcss\.config\.js|tailwind\.config\.js)!) }
 
-  spec.add_runtime_dependency "jekyll", ">= 3.9.0"
-    spec.add_runtime_dependency "webrick", "~> 1.7"
+  spec.add_runtime_dependency "jekyll", "~> 4"
+  spec.add_dependency "webrick", "~> 1.7"
 
-  spec.add_runtime_dependency "jekyll-postcss"
-  spec.add_runtime_dependency "kramdown-parser-gfm"
-  spec.add_runtime_dependency "jekyll-gfm-admonitions"
-  spec.add_runtime_dependency "jekyll-sitemap"
-  spec.add_runtime_dependency "jekyll-git_metadata"
-  spec.add_runtime_dependency "jekyll-feed"
-  spec.add_runtime_dependency "jekyll-git"
-
+  spec.add_dependency "jekyll-postcss"
+  spec.add_dependency "kramdown-parser-gfm"
+  spec.add_dependency "jekyll-gfm-admonitions"
+  spec.add_dependency "jekyll-sitemap"
+  spec.add_dependency "jekyll-git", "~> 0.3.5"
+  spec.add_dependency "jekyll-feed"
   spec.add_development_dependency "bundler"
 end
