@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name = "doctored"
+  spec.name = "jekyll-theme-doctored"
   spec.version = "0.1.6"
   spec.authors = ["matmanna"]
   spec.email = [""]

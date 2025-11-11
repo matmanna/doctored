@@ -1,6 +1,6 @@
 # 🎩 Doctored
 
-[![Gem Version](https://badge.fury.io/rb/gemspec.svg)](https://rubygems.org/gems/doctored)
+[![Gem Version](https://badge.fury.io/rb/gemspec.svg)](https://rubygems.org/gems/jekyll-theme-doctored)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![wakatime](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f57b75b4-8209-4d96-bb52-b673574bed86.svg)](https://wakatime.com/badge/user/7482ea9d-3085-4e9b-95ad-1ca78a14d948/project/f57b75b4-8209-4d96-bb52-b673574bed86) 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/matmanna/doctored/jekyll.yml)
