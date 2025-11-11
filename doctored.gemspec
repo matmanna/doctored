@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "kramdown-parser-gfm"
   spec.add_dependency "jekyll-gfm-admonitions"
   spec.add_dependency "jekyll-sitemap"
-  spec.add_dependency "jekyll-git", "~> 0.3.5"
+  spec.add_dependency "jekyll-git"
   spec.add_dependency "jekyll-feed"
   spec.add_development_dependency "bundler"
 end
