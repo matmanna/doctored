@@ -35,15 +35,11 @@ exclude:
 - bin
 - node_modules
 - package-lock.json
-- postcss.config.js
 - tailwind.config.js
 - .github
 
 sass:
   sourcemap: never
-
-postcss:
-  cache: false
 
 keep_files:
   - assets/css/tailwind.css
