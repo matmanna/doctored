@@ -8,7 +8,7 @@
 
 A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
-**Demo Deployment:** https://matmanna.github.io/doctored
+**🧪 Demo Deployment:** https://matmanna.github.io/doctored
 
 ## 🌟 Overview
 
