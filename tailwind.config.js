@@ -11,9 +11,24 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: colors.stone,
-      },
+      colors: (function () {
+        const defaultPaletteName = 'stone'
+        const paletteName = (process.env.PRIMARY_PALETTE || defaultPaletteName).toLowerCase()
+        let primaryPalette = colors[paletteName]
+        if (!primaryPalette) {
+          primaryPalette = colors[defaultPaletteName]
+        }
+
+        const primaryShade = process.env.PRIMARY_SHADE
+        if (primaryShade && primaryPalette && primaryPalette[primaryShade]) {
+          const mapped = {}
+          Object.keys(primaryPalette).filter(k => /^\d+$/.test(k)).forEach(k => {
+            mapped[k] = primaryPalette[primaryShade]
+          })
+          return { primary: mapped }
+        }
+        return { primary: primaryPalette }
+      })(),
       typography: {
         DEFAULT: {
           css: (theme) => ({
