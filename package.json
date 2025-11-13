@@ -12,7 +12,8 @@
   "scripts": {
     "postinstall": "bundle install",
     "dev": "bundle exec jekyll serve --watch",
-    "build": "postcss assets/css/tailwind.css -o assets/css/main.css && python utils/postMarkdown.py && bundle exec jekyll build",
+    "build": "bash utils/build-palettes.sh && python utils/postMarkdown.py && bundle exec jekyll build",
+    "build:palettes": "bash utils/build-palettes.sh",
     "clean": "bundle exec jekyll clean",
     "doctor": "bundle exec jekyll doctor",
     "post": "python utils/postMarkdown.py"

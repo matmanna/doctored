@@ -2,6 +2,7 @@ title: Doctored
 description: "A  blog theme prioritizing uniqueness, complexity, and sophistication."
 github: "https://github.com/matmanna/doctored"
 url: "https://matmanna.github.io/doctored"
+color: stone
 encoding: utf-8
 
 plugins:
@@ -38,10 +39,7 @@ exclude:
 - tailwind.config.js
 - .github
 
-sass:
-  sourcemap: never
-
 keep_files:
   - assets/css/tailwind.css
-  - assetss/css/tailwind.css.map
+  - assets/css/main.*.css
   - assets/js

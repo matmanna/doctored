@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-theme-doctored"
-  spec.version = "0.1.8"
+  spec.version = "0.2.0"
   spec.authors = ["matmanna"]
   spec.email = [""]
   spec.license = "MIT"
@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = " Doctored is a jekyll theme built with tailwind CSS which enables the ceration of static, yet highly advanced, blogs, digital gardens, documentation, and portfolio websites."
   spec.homepage = "https://matmanna.github.io/doctored"
 
-  spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass|LICENSE|README|_config\.yml|404\.md|package\.json|tailwind\.config\.js)!) }
+  spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|LICENSE|404\.md|package\.json|tailwind\.config\.js)!) }
 
   spec.add_runtime_dependency "jekyll", "~> 4"
   spec.add_dependency "webrick", "~> 1.7"

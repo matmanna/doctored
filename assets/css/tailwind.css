@@ -34,7 +34,7 @@
 
     body {
         text-underline-offset: 4px;
-        counter-reset: sidenote-counter; 
+        counter-reset: sidenote-counter;
     }
 
     small {
@@ -67,6 +67,7 @@
         gap: 8px;
         display: flex;
     }
+
     li::marker {
         @apply !text-primary-500;
     }
