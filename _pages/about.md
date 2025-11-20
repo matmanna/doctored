@@ -1,118 +1,90 @@
 ---
 layout: page
 title: About
-description: Features of the Doctored Theme
+description: What Doctored is and why it exists.
 footnotes: false
 toc: true
 ---
 
 <!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
 
-## Introduction
-
-> [!IMPORTANT]
-> The Doctored theme is still very much a work-in-progress, so expect breaking features and lots of bugs!
-
 ## Inspiration
 
-The idea for doctored was taken from seeing so many amazing blogs which have their own distinctive, refined personalities. I wanted to combine these and make something sophisticated.
+The idea for doctored was taken from seeing so many amazing blogs which have their own distinctive, refined personalities. These include:
 
-## Features
+- Alex Plescan's AMAZING hugo-based [blog](https://alexplescan.com/)
+- Noel Berry's creative gamedev [page](https://noelberry.ca/index.html)
+- Mahad Kalan's elegant astro [site](https://skyfall.dev/)
+- the Quartz obsidian plugin theme
+- the lualine neovim plugin
+- and many more who I will make sure to acknowledge later!
 
-### markdown/post/page rendering:
+## Roadmap
 
-- Footnotes & Sidenotes
-- GFM Admonitions
-- Live, Floating, linked Table Of Contents
-- Anchor links
+Doctored is very much still a WIP. Feel free to monitor or contribute to the status of the project!
 
-### site
-
-- UI modes and bold colorthemes
-  - Dark/light/system mode toggle and dropdown
-  - Customizable color themes (22 [colors](tailwindcss.com/docs/colors)!)
-- Tailwind styling
-- FontAwesome icons
-- Scroll to top button
-- Navbar and Footer
-- Sticky header on posts
-- Git site statistics
-- RSS [feed]({{ '/feed.xml' | relative_url }})
-- [sitemap]({{ '/sitemap.xml' | relative_url }})
-
-### pages
-
-- Homepage (index)
-- About Page
-- Post Pages
-- Blog Page
-- 404 Page
-- Now Page
-- Projects Page
-
-## Todo
-
-### new pages
-
-- Contact Form
-
-### post/page features:
-
-- Mermaid diagrams
-- Dialogue chains
-- Quote-ables
-- expandable annotations
-- Nice images with captions
-- Code blocks (with origins)
-  - Syntax highlighting
-  - GitHub gists?
-  - Jekyll with Agda: https://github.com/paolobrasolin/jekyll-agda
-
-### site updates:
-
-- Webring & 88x31 section
-- Post series (with pages)
-- search
-- page hover embeds
-- microblog?
-- backlinks
-- FAQ section type
-- Comments (giscus?)
-- page network diagram
-
-### metadata stuff:
-
-- robots.txt
-- update README/home/marketing
-  - add demo site links (under projects)
-    - technical product site (projects) ⚙️
-      - the doctored documentation site!!
-    - individual portolio/blog 👋
-    - digital garden 🪴
-      - inspired by quartz for obsidian
-  - advertise "skins" better
-  - advertise the ability to "doctor"/customize/fudge/adjust/forge/alter/modify/tailor to specific needs
-    - adaptable/flexible
-
-### code/dx stuff:
-
- - Demo Video
- - pnpm
- - page section customizability through config
-   - cards/rows/etc similar to lualine syntax
-- customization of small details
-  - icons (anchors, open in new)
-  - site fonts
-  - link formats
-  - secondary colors?
-  - status of 
-    - footnote
-    - sidenote
-    - search
-    - TOC/moving TOC
-    - git metadata
-    - page progressbar
-  - nav
-    - tabs/language (blog/posts/updates/talks/notes/now/projects/contact/about)
-    - topbar vs sidebar
-- GitHub-wiki-based documentation of all config options
+- #### rendering
+  - [x] footnotes & sidenotes
+  - [x] GFM (admonitions, checkboxes, etc.)
+  - [x] floating table of contents with links and scrollspy
+  - [x] heading anchors
+  - [ ] captioned images/figures
+  - [ ] quotes
+    - [ ] dialogue message chains
+  - [ ] codeblocks
+    - [ ] syntax highlighting
+    - [ ] linking w/ agda
+- #### frontend
+  - [x] light/dark ui modes
+  - [x] responsive navbar/footer
+  - [x] fontawesome icons
+  - [x] git metadata (footer ref)
+  - [x] anchor/external link icons
+  - [ ] post tags
+  - [ ] project posts
+  - [ ] post series
+  - [ ] related posts
+  - [ ] post search (simple or advanced)
+  - [ ] link previews?
+  - [ ] page progressbars
+  - [ ] local time
+  - [ ] site map (graph)
+  - [ ] webrings
+  - [ ] 88x31s
+  - [ ] isso comments
+  - [ ] scroll to top button
+- #### pages
+  - [x] index
+  - [x] about
+  - [x] blog
+  - [x] 404
+  - [x] now
+    - [ ] stream microblog
+  - [x] projects
+  - [ ] tag
+  - [ ] contact
+- #### meta
+  - [x] [sitemap]({{ '/sitemap.xml' | relative_url }})
+  - [x] global RSS [feed]({{ '/feed.xml' | relative_url }})
+  - [ ] tag rss feeds
+  - [ ] robots.txt
+- #### docs
+  - [ ] demo/trailer video
+  - [ ] better README
+  - [ ] document doctored with doctored!!
+     - [ ] make starters for:
+       - [ ] digital gardening
+       - [ ] blogging
+       - [ ] portfolioing
+       - [ ] documenting
+- #### dx
+  - [ ] rakefiles?
+  - [ ] nixos setup
+  - [ ] "doctor"ing with lualine-like config
+    - [ ] page sections
+      - [ ] FAQ
+      - [ ] foot
+      - [ ] navbar tabs
+    - [ ] style
+      - [ ] fonts
+      - [x] customizable tailwind palette (22 [colors](tailwindcss.com/docs/colors)!)

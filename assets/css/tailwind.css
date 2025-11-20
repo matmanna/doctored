@@ -62,13 +62,33 @@
         border-width: 2px;
     }
 
+    strong {
+        @apply uppercase font-bold;
+    }
+
+    hr {
+        @apply my-4;
+    }
+
     .prose>h2,
     h3 {
         gap: 8px;
         display: flex;
     }
 
+    div.content {
+        @apply !normal-case;
+    }
+
     li::marker {
         @apply !text-primary-500;
     }
+
+    .task-list-item-checkbox {
+        margin-right: 8px;
+    }
+}
+
+input.task-list-item-checkbox {
+    margin-right: 8px !important;
 }

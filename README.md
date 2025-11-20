@@ -14,7 +14,7 @@ A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
 Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide and [template](https://github.com/hackclub/tonic-starter). No other jekyll theme really felt like it matched what I would have wanted so I created my own!
 
-**💫 Feature highlights:**
+**💫 Features:**
 
 - 20+ color schemes & dark/light/system modes
 - Projects, blog, now, and contact pages
@@ -31,10 +31,19 @@ Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com)
 | ----- | ---- |
 | <img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/0919fd1d-2ed2-4ded-829a-6b504f939515" /> | <img width="1917" height="1014" alt="image" src="https://github.com/user-attachments/assets/dadb5548-a2c0-4f22-a2e1-6b2f67bd29f9" /> |
 
-## ⌨️ Usage
+## 💾 Installation Instructions
 
-> [!IMPORTANT]
-> Developing a site with doctored requires having Ruby, RubyGems, GCC, Make Bundle, Python, Node.js, and npm installed on your system.
+> [!NOTE]
+> Additional installation/usage instructions are WIP
+
+To add to an existing Jekyll site using the packaged gem (recommended):
+
+1. add the `gem "jekyll-theme-doctored` dependency to your `Gemfile`
+2. run `bundle install`
+3. add `theme: jekyll-theme-doctored` to your Jekyll `_config.yml`
+4. follow the usage instructions below to serve (or continue customizing) your site!
+
+## ⌨️ Usage
 
 ### ▶️ Running
 
@@ -42,9 +51,9 @@ Run `npm install` and `npm run dev` to develop. Run `npm run build` to build. Po
 
 ### 🖼️ Formatting posts
 
-To post a new post, run `npm run post markdown_file_path_in__drafts`, which formats it with side/foot notes then moves it to `_posts/` (or root if page!)
+If you want to use sidenotes in your posts/pages, begin by copying the `utils/postMarkdown.py` script and creating a `_drafts` directory within your project.
 
-Based on [@JacobU](https://github.com/jacobu)'s `postMarkdown` python script, doctored supports writing your posts/pages in a simple markdown file within `_drafts` before running the `post` script to format it in the following ways:
+To post a new post, run `python utils/postMarkdown.py _drafts/_posts/example-001.md`, which will  format and copy it to `_posts/` (or root if page!)
 
 - **Foot/sidenotes:**
 
