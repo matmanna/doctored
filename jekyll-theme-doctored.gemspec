@@ -15,6 +15,7 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|LICENSE|404\.md|package\.json|tailwind\.config\.js)!) }
 
   spec.add_runtime_dependency "jekyll", "~> 4"
+  spec.add_runtime_dependency "jekyll-tagging"
   spec.add_dependency "webrick", "~> 1.7"
 
   spec.add_dependency "kramdown-parser-gfm"

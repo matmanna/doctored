@@ -41,7 +41,7 @@ Doctored is very much still a WIP. Feel free to monitor or contribute to the sta
   - [x] git metadata (footer ref)
   - [x] anchor/external link icons
   - [x] page TOC section progressrings
-  - [ ] post tags
+  - [x] post tags
   - [ ] project posts
   - [ ] i18n ui
   - [ ] post series
@@ -67,7 +67,8 @@ Doctored is very much still a WIP. Feel free to monitor or contribute to the sta
 - #### meta
   - [x] [sitemap]({{ '/sitemap.xml' | relative_url }})
   - [x] global RSS [feed]({{ '/feed.xml' | relative_url }})
-  - [ ] tag rss feeds
+  - [x] add seo tags
+  - [x] tag rss feeds
   - [ ] robots.txt
 - #### docs
   - [ ] demo/trailer video

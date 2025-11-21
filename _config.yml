@@ -12,12 +12,18 @@ plugins:
   - jekyll-feed
   - jekyll-git
   - jekyll-seo-tag
+  - jekyll/tagging
 
 feed:
   icon: /assets/images/favicon.png
 
 redcarpet:
   extensions: ["with_toc_data"]
+
+tag_page_layout: tag_page
+tag_page_dir: tag
+tag_feed_layout: tag_feed
+tag_feed_dir: tag
 
 collections:
   projects:
