@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "jekyll-gfm-admonitions"
   spec.add_dependency "jekyll-sitemap"
   spec.add_dependency "jekyll-git"
+  spec.add_dependency "jekyll-seo-tag"
   spec.add_dependency "jekyll-feed"
   spec.add_development_dependency "bundler"
 end

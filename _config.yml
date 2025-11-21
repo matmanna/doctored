@@ -11,6 +11,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-git
+  - jekyll-seo-tag
 
 feed:
   icon: /assets/images/favicon.png
