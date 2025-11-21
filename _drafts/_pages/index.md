@@ -9,7 +9,7 @@ a couple of _the_ most common questions<small>These are also some of the most co
 
 ## What?
 
-- A blog theme which prioritizes uniqueness, technical complexity, and sophistication<small>While this could be redundant, it describes the the theme's vibe.</small>
+- A jekyll theme which prioritizes uniqueness, technical complexity, and sophistication<small>While this could be redundant, it describes the the theme's vibe.</small>
 
 - **For a full list of features, see [/about]({{ '/about' | relative_url }}).**
 - **For code, usage instructions, and (limited) docs, see [:github]({{ site.github }}).**
