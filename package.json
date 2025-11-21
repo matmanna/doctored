@@ -12,7 +12,8 @@
   "scripts": {
     "postinstall": "bundle install",
     "dev": "bundle exec jekyll serve --watch",
-    "build": "bash utils/build-palettes.sh && python utils/postMarkdown.py && bundle exec jekyll build",
+    "build": "bundle exec jekyll build",
+    "build:posts": "python utils/postMarkdown.py",
     "build:palettes": "bash utils/build-palettes.sh",
     "clean": "bundle exec jekyll clean",
     "doctor": "bundle exec jekyll doctor",

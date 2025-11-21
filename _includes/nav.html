@@ -1,18 +1,17 @@
 <div class="flex flex-row flex-wrap justify-between w-full gap-4">
   <div class="flex flex-row gap-1">
     {{site.data.nav.emoji}}
-    <a href="{{ '/' | relative_url }}"><h3 class="font-sans">{{ site.data.nav.title }}</h3></a>
-    </div>
-      <ul class="flex flex-row flex-wrap gap-3 sm:lips:gap-4 text-sm sm:text-base">
-        {% for entry in site.data.nav.pages %}
-          <li>
-            <a href="{{ entry.url | relative_url }}" 
-              {% if page.url == entry.url or (page.url == '/' and entry.url == '/') %}
-                class="font-bold"
-              {% endif %}
-            >/{{ entry.title }}</a>
-          </li>
-        {% endfor %}
-        <li id="theme-toggle" class="dark:text-primary-400 text-primary-800 "></li>
-      </ul>
+    <a href="{{ '/' | relative_url }}">
+      <h3 class="font-sans">{{ site.data.nav.title }}</h3>
+    </a>
+  </div>
+  <ul class="flex flex-row flex-wrap gap-3 sm:lips:gap-4 text-sm sm:text-base">
+    {% for entry in site.data.nav.pages %}
+    <li>
+      <a href="{{ entry.url | relative_url }}" {% if page.url==entry.url or (page.url=='/' and entry.url=='/' ) %}
+        class="font-bold" {% endif %}>/{{ entry.title }}</a>
+    </li>
+    {% endfor %}
+    <li id="theme-toggle" class="dark:text-primary-400 text-primary-800 "></li>
+  </ul>
 </div>

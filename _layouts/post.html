@@ -3,22 +3,16 @@ layout: default
 ---
 
 <h1>{{ page.title }}</h1>
-<p>{{ page.description }}</p>
 
-<div class="flex flex-row gap-4">
-    <p class="my-0">On {{ page.date | date_to_string }}, by</p>
-    <a href="https://github.com/{{ page.author }}" class="flex flex-row items-center gap-2">
-        <img src="https://github.com/{{ page.author }}.png?size=30" class="my-0 w-8 h-8 rounded-full" />
-        @{{ page.author }}
-    </a>
-</div>
 {% if page.toc != false %}
-    {% include toc-card.html html=content %}
+{% include toc-card.html html=content %}
 {% endif %}
 <div>
 
 </div>
 
-{{ content }}
+<div class="content">
+    {{ content }}
+</div>
 
 <script src="{{ '/assets/js/scrollspy.js' | relative_url }}"></script>

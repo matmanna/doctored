@@ -2,7 +2,9 @@
 {% include head.html %}
 
 <body
-    class="dark:text-primary-300 text-primary-700 dark:bg-primary-900 bg-primary-100 font-display flex flex-col items-center md:items-center lg:items-center">
+    class="dark:text-primary-300 text-primary-700 dark:bg-primary-900 bg-primary-100 font-display flex flex-col items-center md:items-center lg:items-center ">
+    <div class="absolute top-0" id="top"></div>
+
     <header
         class="w-full dark:text-primary-700 text-primary-800 dark:bg-primary-950 bg-primary-300 flex flex-col items-center py-4 px-4 border-t-[6px] border-solid border-primary-500">
         <div class="max-w-[65ch] w-full">
@@ -10,11 +12,13 @@
         </div>
     </header>
     <div class="prose dark:prose-invert my-8 px-4 max-w-[65ch] w-full space-y-5">
-        {% include anchor_headings.html html=content anchorBody="<i class=\"fas fa-anchor fa-2xs hover:fa-bounce\"></i>" anchorClass="content-center" %}
+        {% include anchor_headings.html html=content anchorBody="<i class=\"fas fa-anchor fa-2xs hover:fa-bounce\"></i>"
+        anchorClass="content-center" %}
     </div>
     <footer
-        class="w-full dark:text-primary-400 text-primary-800 dark:bg-primary-950 bg-primary-200 py-6 flex flex-col items-center">
-        <div class="max-w-[70ch] w-full">
+        class="w-full dark:text-primary-400 text-primary-800 dark:bg-primary-950 bg-primary-100 py-6 pt-3 flex flex-col items-center">
+        <div class="max-w-[70ch] w-full border-top-3 border-dotted border-primary-500 pt-3 dark:border-none"
+            style="border-top-width: 2px;">
             {% include foot.html %}
         </div>
     </footer>
