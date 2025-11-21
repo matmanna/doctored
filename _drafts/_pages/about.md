@@ -65,6 +65,7 @@ Doctored is very much still a WIP. Feel free to monitor or contribute to the sta
 - #### meta
   - [x] [sitemap]({{ '/sitemap.xml' | relative_url }})
   - [x] global RSS [feed]({{ '/feed.xml' | relative_url }})
+  - [x] add seo tags
   - [ ] tag rss feeds
   - [ ] robots.txt
 - #### docs
