@@ -70,7 +70,7 @@
                     <i class="fas fa-hashtag"></i>
                     <p class="my-0 mr-1"><strong>Tags </strong></p>
                     {% for tag in page.tags %}
-                    <a href="/tags/{{ tag.name | downcase | replace: ' ', '-' }}/" class="no-underline">
+                    <a href="/tags/{{ tag | downcase | replace: ' ', '-' }}/" class="no-underline">
                         <div
                             class="bg-primary-500 dark:bg-primary-900  py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit text-xs">
                             <!-- <i class="{{ tag }}"></i> -->{{ tag }}
@@ -219,7 +219,6 @@
                             tocNavbar.style.opacity = '1';
                             tocNavbar.style.transform = 'translateY(0)';
                         });
-
                     } else {
                         tocNavbar.style.opacity = '0';
                         tocNavbar.style.transform = 'translateY(-16px)';
@@ -283,5 +282,85 @@
 
         updateOriginalPosition();
         toggleFixedPosition();
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toc = document.getElementById('table-of-contents');
+        const tocLinks = Array.from(document.querySelectorAll('#table-of-contents a.toc-link'));
+        if (!tocLinks.length) return;
+
+        const items = tocLinks.map(a => {
+            const href = a.getAttribute('href') || '';
+            const id = href.startsWith('#') ? href.slice(1) : null;
+            const target = id ? document.getElementById(id) : null;
+            const ring = a.querySelector('.toc-ring');
+            const li = a.closest('li');
+            const radius = ring ? Number(ring.getAttribute('r')) : 8;
+            const circumference = 2 * Math.PI * radius;
+            if (ring) {
+                ring.style.strokeDasharray = `${circumference}`;
+                ring.style.strokeDashoffset = `${circumference}`;
+            }
+            return { a, id, target, ring, circumference, li };
+        }).filter(i => i.target && i.ring && i.li);
+
+        function clamp(v, lo = 0, hi = 1) { return Math.max(lo, Math.min(hi, v)); }
+
+        function updateProgress() {
+            const tocComputedStyle = window.getComputedStyle(toc);
+            const tocIsFixed = tocComputedStyle && tocComputedStyle.position !== 'fixed';
+            if (tocIsFixed) {
+                for (const item of items) {
+                    if (item.ring) item.ring.style.strokeDashoffset = String(item.circumference);
+                    if (item.a && item.a.querySelector('.toc-bullet')) item.a.querySelector('.toc-bullet').style.display = 'none';
+                }
+                return;
+            } else {
+                for (const item of items) {
+                    if (item.a && item.a.querySelector('.toc-bullet')) item.a.querySelector('.toc-bullet').style.display = '';
+                }
+            }
+
+            const scrollY = window.scrollY || window.pageYOffset;
+            const viewportH = window.innerHeight;
+
+            const basePct = new Map();
+            for (const item of items) {
+                const el = item.target;
+                const rect = el.getBoundingClientRect();
+                const elTop = rect.top + scrollY;
+                const elHeight = Math.max(rect.height, 1);
+                const viewed = (scrollY + viewportH - elTop) / (elHeight + viewportH);
+                basePct.set(item.a, clamp(viewed, 0, 1));
+            }
+
+            for (const item of items) {
+                let pct = basePct.get(item.a) || 0;
+
+                const descendantAnchors = Array.from(item.li.querySelectorAll('a.toc-link')).filter(a => a !== item.a);
+                const descendantItems = descendantAnchors.map(a => items.find(it => it.a === a)).filter(Boolean);
+                if (descendantItems.length > 0) {
+                    const vals = descendantItems.map(di => basePct.get(di.a) || 0);
+                    const sum = vals.reduce((s, v) => s + v, 0);
+                    pct = sum / vals.length;
+                }
+
+                const offset = item.circumference * (1 - pct);
+                if (item.ring) item.ring.style.strokeDashoffset = String(offset);
+            }
+        }
+
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => { updateProgress(); ticking = false; });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
     });
 </script>

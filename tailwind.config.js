@@ -52,6 +52,17 @@ module.exports = {
       sans: ['sans-serif'],
       icon: ['FontAwesome'],
     },
+    borderWidth: {
+      DEFAULT: '1px',
+      '1': '1px',
+      '2': '2px',
+      '3': '3px',
+    },
+    borderStyle: {
+      dashed: 'dashed',
+      dotted: 'dotted',
+      solid: 'solid',
+    },
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],

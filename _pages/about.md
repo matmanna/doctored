@@ -40,15 +40,16 @@ Doctored is very much still a WIP. Feel free to monitor or contribute to the sta
   - [x] fontawesome icons
   - [x] git metadata (footer ref)
   - [x] anchor/external link icons
+  - [x] page TOC section progressrings
   - [ ] post tags
   - [ ] project posts
+  - [ ] i18n ui
   - [ ] post series
   - [ ] related posts
   - [ ] post search (simple or advanced)
   - [ ] link previews?
-  - [ ] page progressbars
   - [ ] local time
-  - [ ] site map (graph)
+  - [ ] visual site map (graph)
   - [ ] webrings
   - [ ] 88x31s
   - [ ] isso comments
@@ -80,6 +81,7 @@ Doctored is very much still a WIP. Feel free to monitor or contribute to the sta
 - #### dx
   - [ ] rakefiles?
   - [ ] nixos setup
+  - [ ] i18n
   - [ ] "doctor"ing with lualine-like config
     - [ ] page sections
       - [ ] FAQ
