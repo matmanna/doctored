@@ -76,9 +76,6 @@
         display: flex;
     }
 
-    div.content {
-        @apply !normal-case;
-    }
 
     li::marker {
         @apply !text-primary-500;
@@ -137,4 +134,8 @@ input.task-list-item-checkbox {
 
 .toc-fixed .toc-bullet {
     display: none !important;
+}
+
+.content strong {
+    text-transform: none !important;    
 }
