@@ -70,7 +70,7 @@
                     <i class="fas fa-hashtag"></i>
                     <p class="my-0 mr-1"><strong>Tags </strong></p>
                     {% for tag in page.tags %}
-                    <a href="/tags/{{ tag | downcase | replace: ' ', '-' }}/" class="no-underline">
+                    <a href="/tag/{{ tag | downcase | replace: ' ', '-' }}/" class="no-underline">
                         <div
                             class="bg-primary-500 dark:bg-primary-900  py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit text-xs">
                             <!-- <i class="{{ tag }}"></i> -->{{ tag }}

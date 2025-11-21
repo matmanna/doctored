@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-theme-doctored"
-  spec.version = "0.2.1"
+  spec.version = "0.3.0"
   spec.authors = ["matmanna"]
   spec.email = [""]
   spec.license = "MIT"
@@ -15,6 +15,7 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|LICENSE|404\.md|package\.json|tailwind\.config\.js)!) }
 
   spec.add_runtime_dependency "jekyll", "~> 4"
+  spec.add_runtime_dependency "jekyll-tagging"
   spec.add_dependency "webrick", "~> 1.7"
 
   spec.add_dependency "kramdown-parser-gfm"
