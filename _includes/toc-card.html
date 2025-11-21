@@ -72,8 +72,8 @@
                     {% for tag in page.tags %}
                     <a href="/tags/{{ tag.name | downcase | replace: ' ', '-' }}/" class="no-underline">
                         <div
-                            class="bg-primary-500 dark:bg-primary-900  py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit">
-                            <i class="{{ tag.icon }}"></i>{{ tag.name }}
+                            class="bg-primary-500 dark:bg-primary-900  py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit text-xs">
+                            <!-- <i class="{{ tag }}"></i> -->{{ tag }}
                         </div>
                     </a>
                     {% endfor %}
@@ -146,7 +146,7 @@
         function updateOriginalPosition() {
             toc.style.position = 'static';
             toc.querySelector('h4').style.display = 'none';
-            toc.querySelectorAll('h4')[1].style.display = 'block';
+            // toc.querySelectorAll('h4')[1].style.display = 'block';
 
             toc.style.transform = 'none';
             placeholder.style.display = 'none';
