@@ -28,8 +28,8 @@
         applyTheme();
     </script>
     {%- assign palette = site.color | default: 'stone' -%}
-    <link rel="stylesheet" href="{{ '/assets/css/main.' | append: palette | append: '.css' | relative_url }}">
+    <link defer rel="stylesheet" href="{{ '/assets/css/main.' | append: palette | append: '.css' | relative_url }}">
     <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/a7b73c75c9.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/a7b73c75c9.js" crossorigin="anonymous"></script>
     {% seo %}
 </head>
