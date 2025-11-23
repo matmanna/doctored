@@ -5,6 +5,7 @@
 @layer base {
     @font-face {
         font-family: 'LibertinusMonoMono';
+        font-display: swap;
         src: url('../fonts/LibertinusMonoMono.otf') format('opentype');
         font-weight: normal;
         font-style: normal;
