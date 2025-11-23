@@ -3,13 +3,13 @@
 @import "tailwindcss/utilities";
 
 @layer base {
-    @font-face {
-        font-family: 'LibertinusMonoMono';
-        font-display: swap;
-        src: url('../fonts/LibertinusMonoMono.otf') format('opentype');
-        font-weight: normal;
-        font-style: normal;
-    }
+   @font-face {
+  font-family: "LibertinusMonoMono";
+  src: url("/assets/fonts/LibertinusMonoMono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 }
 
 @layer components {
