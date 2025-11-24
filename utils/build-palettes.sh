@@ -33,7 +33,7 @@ for p in "${PALETTES[@]}"; do
 
   {
     echo "<style>"
-    sed -E 's|/assets/fonts/([^)\"]+)|{{ "/assets/fonts/\1" | relative_url }}|g' "$CSS_FILE"
+    sed -E 's#/assets/([^)"]+)#{{ "/assets/\1" | relative_url }}#g' "$CSS_FILE"
     echo "</style>"
   } > "$HTML_FILE"
 done
