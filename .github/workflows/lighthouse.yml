@@ -10,9 +10,9 @@ jobs:
         with:
           urls: |
             https://matmanna.github.io/doctored/
-            https://matmanna.github.io/doctored/blog
-            https://matmanna.github.io/doctored/about
-            https://matmanna.github.io/doctored/projects
-            https://matmanna.github.io/doctored/now
+            https://matmanna.github.io/doctored/blog/
+            https://matmanna.github.io/doctored/about/
+            https://matmanna.github.io/doctored/projects/
+            https://matmanna.github.io/doctored/now/
           uploadArtifacts: true # save results as an action artifacts
           temporaryPublicStorage: true # upload lighthouse report to the temporary storage
