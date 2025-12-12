@@ -25,6 +25,10 @@ tag_page_dir: tag
 tag_feed_layout: tag_feed
 tag_feed_dir: tag
 
+related_from: posts projects
+related_by: tags categories
+related_template: post-card.html
+
 collections:
   projects:
     output: true

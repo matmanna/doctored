@@ -42,10 +42,11 @@ Doctored is very much still a WIP. Feel free to monitor or contribute to the sta
   - [x] anchor/external link icons
   - [x] page TOC section progressrings
   - [x] post tags
+  - [x] related posts/projects
+- [ ] newsletter integrations
   - [ ] project posts
   - [ ] i18n ui
   - [ ] post series
-  - [ ] related posts
   - [ ] post search (simple or advanced)
   - [ ] link previews?
   - [ ] local time

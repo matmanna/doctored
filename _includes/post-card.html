@@ -1,0 +1,60 @@
+{%- comment -%}
+Make this include generic: accepts `include.entry` (or falls back to `post`, `project`, or `item`).
+`kind` is inferred from `include.kind` or `entry.collection` when available. Icon and metadata
+adjust based on kind so the same template can render posts, projects, pages, etc.
+{%- endcomment -%}
+
+{%- assign entry = include.entry | default: post | default: project | default: item -%}
+{%- assign kind_raw = include.kind | default: entry.collection | default: entry.type | default: 'post' -%}
+{%- assign kind = kind_raw | downcase -%}
+
+{%- assign icon_class = 'fa-solid fa-file-lines' -%}
+{%- if kind == 'post' or kind == 'posts' -%}
+{%- assign icon_class = 'fa-solid fa-feather-pointed' -%}
+{%- elsif kind == 'project' or kind == 'projects' -%}
+{%- assign icon_class = 'fa-solid fa-shapes' -%}
+{%- elsif kind == 'page' or kind == 'pages' -%}
+{%- assign icon_class = 'fa-solid fa-file' -%}
+{%- endif -%}
+
+<li
+    class="rounded-md p-0 w-full flex flex-col gap-2 bg-primary-200 dark:bg-primary-950 outline-primary-200 dark:outline-primary-900">
+    <div class="flex flex-row gap-3 w-full rounded-t-md items-center px-4 py-2 bg-primary-300 dark:bg-primary-800">
+        <h4 class="my-0 items-center text-md flex-1">
+            <i class="{{ icon_class }} mr-2 text-primary-800 dark:text-primary-600"></i>
+            <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+        </h4>
+
+        {%- if kind == 'post' or kind == 'posts' -%}
+        <p class="text-xs text-primary-500 my-0">
+            {{ entry.date | date: "%m-%d-%Y" }}
+        </p>
+        {%- endif -%}
+    </div>
+
+    <div class="flex flex-col gap-3 px-4 py-2 pt-0 text-sm">
+        <div class="flex flex-inline flex-wrap gap-2">
+
+            {{ entry.description }}
+            {% for tag in entry.tags %}
+            <a href="/tag/{{ tag | downcase | replace: ' ', '-' }}/" class="no-underline">
+                <div
+                    class="bg-primary-500 dark:bg-primary-900  py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit text-xs">
+                    {{ tag }}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        {%- if kind == 'post' or kind == 'posts' -%}
+        <a href="{{ entry.url | relative_url }}"
+            class="text-primary-600 dark:text-primary-400 hover:underline mt-3">Keep reading...</a>
+        {%- elsif kind == 'project' or kind == 'projects' -%}
+        <a href="{{ entry.url | relative_url }}"
+            class="text-primary-600 dark:text-primary-400 hover:underline mt-3">View more</a>
+        {%- else -%}
+        <a href="{{ entry.url | relative_url }}"
+            class="text-primary-600 dark:text-primary-400 hover:underline mt-3">Open</a>
+        {%- endif -%}
+    </div>
+</li>

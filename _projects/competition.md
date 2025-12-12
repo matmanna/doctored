@@ -11,6 +11,7 @@ skills:
   - name: Coffee
     icon: fas fa-mug-hot
 description: A competition I won with a team
+tags: golang react sql
 ---
 
 <!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
