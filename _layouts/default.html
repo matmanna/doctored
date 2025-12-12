@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 {% include head.html %}
 
 <body
@@ -11,10 +12,10 @@
             {% include nav.html %}
         </div>
     </header>
-    <div class="prose dark:prose-invert my-8 px-4 max-w-[65ch] w-full space-y-5">
+    <main class="prose dark:prose-invert my-8 px-4 max-w-[65ch] w-full space-y-5">
         {% include anchor_headings.html html=content anchorBody="<i class=\"fas fa-anchor fa-2xs hover:fa-bounce\"></i>"
         anchorClass="content-center" %}
-    </div>
+    </main>
     <footer
         class="w-full dark:text-primary-400 text-primary-800 dark:bg-primary-950 bg-primary-100 py-6 pt-3 flex flex-col items-center">
         <div class="max-w-[70ch] w-full border-top-3 border-dotted border-primary-500 pt-3 dark:border-none"
@@ -22,7 +23,7 @@
             {% include foot.html %}
         </div>
     </footer>
-    <script src="{{ '/assets/js/toggle-theme.js' | relative_url }}"></script>
+    {% include toggle-theme.html %}
 </body>
 
 </html>
