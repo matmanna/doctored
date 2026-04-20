@@ -30,6 +30,23 @@ a couple of _the_ most common questions<small>These are also some of the most co
 
 - A jekyll theme which prioritizes uniqueness, technical complexity, and sophistication<small>While this could be redundant, it describes the the theme's vibe.</small>[^2]
 
+## Recent Projects
+
+<ul class="px-0 flex mt-3 flex-col gap-3 not-prose">
+	{% assign recent_projects = site.projects | sort: "start_date" | reverse %}
+	{% for project in recent_projects limit:4 %}
+	{% include post-card.html entry=project kind='project' %}
+	{% endfor %}
+</ul>
+
+## Recent Blog Posts
+
+<ul class="px-0 flex mt-3 flex-col gap-3 not-prose">
+	{% for post in site.posts limit:3 %}
+	{% include post-card.html entry=post kind='post' %}
+	{% endfor %}
+</ul>
+
 - **For a full list of features, see [/about]({{ '/about' | relative_url }}).**
 - **For code, usage instructions, and (limited) docs, see [:github]({{ site.github }}).**
 
