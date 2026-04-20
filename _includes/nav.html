@@ -1,6 +1,10 @@
 <div class="flex flex-row flex-wrap justify-between w-full gap-4">
-  <div class="flex flex-row gap-1">
-    {{site.data.nav.emoji}}
+  <div class="flex flex-row gap-1 items-center">
+    {% if site.data.nav.logo %}
+      <img src="{{ site.data.nav.logo | relative_url }}" alt="logo" class="h-6 w-6">
+    {% else %}
+      <span>{{ site.data.nav.emoji }}</span>
+    {% endif %}
     <a href="{{ '/' | relative_url }}">
       <h3 class="font-sans">{{ site.data.nav.title }}</h3>
     </a>

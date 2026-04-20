@@ -4,6 +4,15 @@ github: "https://github.com/matmanna/doctored"
 url: "https://doctored.matmanna.dev/"
 color: stone
 encoding: utf-8
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 plugins:
   - kramdown-parser-gfm

@@ -22,8 +22,8 @@
         font-family: sans-serif
     }
 
-    a[href^="http://"]:after,
-    a[href^="https://"]:after {
+    a[href^="http://"]:not(.no-external-icon):not([data-no-external-icon]):after,
+    a[href^="https://"]:not(.no-external-icon):not([data-no-external-icon]):after {
         content: "\f08e";
         font-family: FontAwesome;
         font-weight: normal;

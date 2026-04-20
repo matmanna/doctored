@@ -13,7 +13,8 @@ layout: default
 
 <div class="rounded-md bg-primary-300 dark:bg-primary-800 p-4 mb-4">
     <ul class="my-0">
-        <li>
+        {% if page.skills and page.skills.size > 0 %}
+        <li class="mb-3">
             <div class="flex flex-row gap-2 items-center">
                 <p class="my-0 mr-1">Skills: </p>
                 {% for skill in page.skills %}
@@ -24,16 +25,60 @@ layout: default
                 {% endfor %}
             </div>
         </li>
+        {% endif %}
 
+        {% if page.start_date or page.end_date %}
+        <li class="mb-3">
+            <div class="flex flex-row flex-wrap items-center gap-4">
+                {% if page.start_date %}
+                <div class="flex flex-row items-center gap-2"><i class="fas fa-play"></i><span>Started {{ page.start_date | date: "%b %Y" }}</span></div>
+                {% endif %}
+                {% if page.end_date %}
+                <div class="flex flex-row items-center gap-2"><i class="fas fa-flag-checkered"></i><span>Ended {{ page.end_date | date: "%b %Y" }}</span></div>
+                {% else %}
+                <div class="flex flex-row items-center gap-2"><i class="fas fa-arrows-rotate"></i><span>Ongoing</span></div>
+                {% endif %}
+            </div>
+        </li>
+        {% endif %}
+
+        {% if page.activity_percent %}
+        <li class="mb-3">
+            <div class="text-sm mb-1">Activity{% if page.activity_status %} ({{ page.activity_status }}){% endif %}: {{ page.activity_percent }}%</div>
+            <div class="w-full bg-primary-200 dark:bg-primary-900 rounded-full h-2 overflow-hidden">
+                <div class="bg-primary-700 dark:bg-primary-400 h-2 rounded-full" style="width: {{ page.activity_percent }}%"></div>
+            </div>
+        </li>
+        {% endif %}
+
+        {% if page.links and page.links.size > 0 %}
+        <li class="mb-3">
+            <div class="flex flex-row flex-wrap items-center gap-3">
+                {% for link in page.links %}
+                <div class="flex flex-row items-center gap-2"><i class="{{ link.icon | default: 'fas fa-arrow-up-right-from-square' }}"></i><a class="no-external-icon" href="{{ link.url }}">{{ link.title }}</a></div>
+                {% endfor %}
+            </div>
+        </li>
+        {% endif %}
+
+        {% assign has_links = false %}
+        {% if page.links and page.links.size > 0 %}
+        {% assign has_links = true %}
+        {% endif %}
+
+        {% if page.website and has_links == false %}
         <li>
             <div class="flex flex-row items-center gap-3"><i class="fas fa-link"></i><a href="{{ page.website }}">Visit
                     the website</a></div>
         </li>
+        {% endif %}
 
+        {% if page.video %}
         <li>
             <div class="flex flex-row items-center gap-3"><i class="fa-brands fa-youtube"></i><a
                     href="{{ page.video }}">Watch the recap</a></div>
         </li>
+        {% endif %}
     </ul>
 </div>
 

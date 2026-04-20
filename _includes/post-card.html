@@ -17,44 +17,129 @@ adjust based on kind so the same template can render posts, projects, pages, etc
 {%- assign icon_class = 'fa-solid fa-file' -%}
 {%- endif -%}
 
+{%- assign tag_palette = "bg-primary-500 dark:bg-primary-900 text-primary-200 dark:text-primary-400|bg-primary-600 dark:bg-primary-800 text-primary-100 dark:text-primary-300|bg-primary-700 dark:bg-primary-700 text-primary-100 dark:text-primary-200|bg-primary-800 dark:bg-primary-600 text-primary-100 dark:text-primary-100" | split: "|" -%}
+
 <li
-    class="rounded-md p-0 w-full flex flex-col gap-2 bg-primary-200 dark:bg-primary-950 outline-primary-200 dark:outline-primary-900">
-    <div class="flex flex-row gap-3 w-full rounded-t-md items-center px-4 py-2 bg-primary-300 dark:bg-primary-800">
-        <h4 class="my-0 items-center text-md flex-1">
-            <i class="{{ icon_class }} mr-2 text-primary-800 dark:text-primary-600"></i>
-            <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
-        </h4>
-
-        {%- if kind == 'post' or kind == 'posts' -%}
-        <p class="text-xs text-primary-500 my-0">
-            {{ entry.date | date: "%m-%d-%Y" }}
-        </p>
-        {%- endif -%}
-    </div>
-
-    <div class="flex flex-col gap-3 px-4 py-2 pt-0 text-sm">
-        <div class="flex flex-inline flex-wrap gap-2">
-
-            {{ entry.description }}
-            {% for tag in entry.tags %}
-            <a href="/tag/{{ tag | downcase | replace: ' ', '-' }}/" class="no-underline">
-                <div
-                    class="bg-primary-500 dark:bg-primary-900  py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit text-xs">
-                    {{ tag }}
-                </div>
+    class="rounded-md p-0 w-full flex flex-col gap-1 bg-primary-200 dark:bg-primary-950 outline-primary-200 dark:outline-primary-900 overflow-hidden">
+    <div class="flex flex-row items-stretch gap-3 w-full px-3 py-2">
+        {%- if (kind == 'project' or kind == 'projects') and entry.image -%}
+        <div class="w-24 h-24 min-w-24 sm:w-28 sm:h-28 sm:min-w-28">
+            <a href="{{ entry.url | relative_url }}" class="no-underline">
+                <img src="{{ entry.image | relative_url }}" alt="{{ entry.title }} image"
+                    class="w-full h-full object-cover rounded-md border border-primary-500/40" loading="lazy">
             </a>
-            {% endfor %}
         </div>
-
-        {%- if kind == 'post' or kind == 'posts' -%}
-        <a href="{{ entry.url | relative_url }}"
-            class="text-primary-600 dark:text-primary-400 hover:underline mt-3">Keep reading...</a>
-        {%- elsif kind == 'project' or kind == 'projects' -%}
-        <a href="{{ entry.url | relative_url }}"
-            class="text-primary-600 dark:text-primary-400 hover:underline mt-3">View more</a>
-        {%- else -%}
-        <a href="{{ entry.url | relative_url }}"
-            class="text-primary-600 dark:text-primary-400 hover:underline mt-3">Open</a>
         {%- endif -%}
+
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex flex-row gap-2 w-full rounded-md items-center px-2 py-1.5 bg-primary-300 dark:bg-primary-800">
+                <h4 class="my-0 items-center text-md flex-1">
+                    <i class="{{ icon_class }} mr-2 text-primary-800 dark:text-primary-600"></i>
+                    <a href="{{ entry.url | relative_url }}" class="no-external-icon">{{ entry.title }}</a>
+                </h4>
+
+                {%- if kind == 'post' or kind == 'posts' -%}
+                <p class="text-xs text-primary-500 my-0">
+                    {{ entry.date | date: "%m-%d-%Y" }}
+                </p>
+                {%- elsif (kind == 'project' or kind == 'projects') and (entry.start_date or entry.end_date or entry.activity_percent) -%}
+                <div class="flex flex-col items-end text-[11px] leading-tight text-primary-600 dark:text-primary-400 my-0">
+                    <span>
+                        {%- if entry.start_date -%}
+                        {{ entry.start_date | date: "%b %Y" }}
+                        {%- endif -%}
+                        {%- if entry.end_date -%}
+                        - {{ entry.end_date | date: "%b %Y" }}
+                        {%- elsif entry.start_date -%}
+                        - now
+                        {%- endif -%}
+                    </span>
+                    {%- if entry.activity_percent -%}
+                    <span>Activity {{ entry.activity_percent }}%</span>
+                    {%- endif -%}
+                </div>
+                {%- endif -%}
+            </div>
+
+            <div class="flex flex-col gap-2 text-sm">
+                <p class="my-0">{{ entry.description }}</p>
+
+                {%- if entry.tags and entry.tags.size > 0 -%}
+                <div class="flex flex-row flex-wrap gap-2">
+                    {% for tag in entry.tags %}
+                    {%- assign palette_index = forloop.index0 | modulo: tag_palette.size -%}
+                    {%- assign palette_classes = tag_palette[palette_index] -%}
+                    <a href="/tag/{{ tag | downcase | replace: ' ', '-' }}/" class="no-underline no-external-icon">
+                        <div class="{{ palette_classes }} py-1 items-center px-2 rounded-md flex flex-row gap-2 h-fit text-xs">
+                            <i class="fas fa-tag fa-xs"></i>{{ tag }}
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {%- endif -%}
+
+                {%- if kind == 'project' or kind == 'projects' -%}
+                <div class="flex flex-row flex-wrap gap-2 mt-1">
+                    {%- if entry.links and entry.links.size > 0 -%}
+                    {% for link in entry.links %}
+                    <a href="{{ link.url }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="{{ link.icon | default: 'fas fa-arrow-up-right-from-square' }}"></i>{{ link.title }}
+                        </div>
+                    </a>
+                    {% endfor %}
+                    {%- else -%}
+                    {%- if entry.live_demo -%}
+                    <a href="{{ entry.live_demo }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="fas fa-play"></i>Live demo
+                        </div>
+                    </a>
+                    {%- elsif entry.demo -%}
+                    <a href="{{ entry.demo }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="fas fa-play"></i>Live demo
+                        </div>
+                    </a>
+                    {%- elsif entry.website -%}
+                    <a href="{{ entry.website }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="fas fa-play"></i>Live demo
+                        </div>
+                    </a>
+                    {%- endif -%}
+
+                    {%- if entry.source_code -%}
+                    <a href="{{ entry.source_code }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="fa-brands fa-github"></i>Source code
+                        </div>
+                    </a>
+                    {%- elsif entry.source -%}
+                    <a href="{{ entry.source }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="fa-brands fa-github"></i>Source code
+                        </div>
+                    </a>
+                    {%- elsif entry.github -%}
+                    <a href="{{ entry.github }}" class="no-underline no-external-icon">
+                        <div class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
+                            <i class="fa-brands fa-github"></i>Source code
+                        </div>
+                    </a>
+                    {%- endif -%}
+                    {%- endif -%}
+                </div>
+                {%- endif -%}
+
+                {%- if kind == 'post' or kind == 'posts' -%}
+                <a href="{{ entry.url | relative_url }}" class="text-primary-600 dark:text-primary-400 hover:underline mt-3 no-external-icon">Keep reading...</a>
+                {%- elsif kind == 'project' or kind == 'projects' -%}
+                <a href="{{ entry.url | relative_url }}" class="text-primary-600 dark:text-primary-400 hover:underline mt-3 no-external-icon">View more</a>
+                {%- else -%}
+                <a href="{{ entry.url | relative_url }}" class="text-primary-600 dark:text-primary-400 hover:underline mt-3 no-external-icon">Open</a>
+                {%- endif -%}
+            </div>
+        </div>
     </div>
 </li>

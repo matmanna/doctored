@@ -5,6 +5,23 @@ description: The home page for the Doctored blog theme.
 permalink: /
 ---
 
+## Recent Projects
+
+<ul class="px-0 flex mt-3 flex-col gap-3 not-prose">
+	{% assign recent_projects = site.projects | sort: "start_date" | reverse %}
+	{% for project in recent_projects limit:5 %}
+	{% include post-card.html entry=project kind='project' %}
+	{% endfor %}
+</ul>
+
+## Recent Blog Posts
+
+<ul class="px-0 flex mt-3 flex-col gap-3 not-prose">
+	{% for post in site.posts limit:3 %}
+	{% include post-card.html entry=post kind='post' %}
+	{% endfor %}
+</ul>
+
 <!-- This file is auto-generated based on a markdown file in _drafts. Do not edit directly. -->
 
 a couple of _the_ most common questions<small>These are also some of the most common questions that <a href="https://en.wikipedia.org/wiki/Five_Ws">journalists</a> have!</small>[^1] you might have.
