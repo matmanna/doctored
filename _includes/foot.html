@@ -1,12 +1,13 @@
 <div class="flex flex-row justify-between w-full px-5 md:px-10 gap-8">
     <div class="flex flex-col space-y-4 sm:flex-grow max-w-[50%] font-sans">
-        <h3 class="block flex flex-row gap-2 items-center">
+        <h3 class="block gap-2 items-center">
           {% if site.data.foot.logo %}
-            <img src="{{ site.data.foot.logo | relative_url }}" alt="logo" class="h-6 w-6">
+            <span class="text-nowrap inline"><img src="{{ site.data.foot.logo | relative_url }}" alt="logo" class="h-6 w-6">
+            {{ site.data.foot.title }} |</span>
           {% else %}
-            <span>{{ site.data.foot.emoji }}</span>
+            <span class="text-nowrap inline">{{ site.data.foot.emoji }} {{ site.data.foot.title }} |</span>
           {% endif %}
-          {{ site.data.foot.title }} | <span class="dark:text-primary-600 text-primary-700">{{ site.description }}</span>
+           <span class="dark:text-primary-600 text-primary-700">{{ site.description }}</span>
         </h3>
         <div class="flex flex-row flex-wrap gap-4 dark:text-primary-600">
             <label for="theme">Color mode:</label>
