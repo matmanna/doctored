@@ -1,0 +1,28 @@
+{%- assign icon_raw = include.name | default: '' | strip -%}
+{%- assign cls = include.class | default: '' | strip -%}
+
+{%- assign icon_class = icon_raw
+  | replace: 'fas ', 'fa-solid '
+  | replace: 'far ', 'fa-regular '
+  | replace: 'fab ', 'fa-brands ' -%}
+
+{%- assign style = 'fa-solid' -%}
+{%- if icon_class contains 'fa-brands' -%}
+  {%- assign style = 'fa-brands' -%}
+{%- elsif icon_class contains 'fa-regular' -%}
+  {%- assign style = 'fa-regular' -%}
+{%- endif -%}
+
+{%- assign icon_name = '' -%}
+{%- assign icon_tokens = icon_class | split: ' ' -%}
+{%- for token in icon_tokens -%}
+  {%- if token contains 'fa-' and token != 'fa' and token != 'fa-solid' and token != 'fa-regular' and token != 'fa-brands' and token != 'fa-fw' -%}
+    {%- assign icon_name = token | replace: 'fa-', '' -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if icon_name == '' -%}
+  {%- assign icon_name = 'circle' -%}
+{%- endif -%}
+
+<svg class="icon-fa {{ cls }}" aria-hidden="true" focusable="false"><use href="{{ '/assets/icons/fa-sprite.svg' | relative_url }}#{{ style }}-{{ icon_name }}"></use></svg>

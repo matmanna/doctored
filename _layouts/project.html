@@ -5,12 +5,6 @@ layout: default
 <h1>{{ page.title }}</h1>
 <p>{{ page.description }}</p>
 
-<div class="mb-6">
-    {% if page.toc != false %}
-    {% include toc-card.html html=content %}
-    {% endif %}
-</div>
-
 <div class="rounded-md bg-primary-300 dark:bg-primary-800 p-4 mb-4">
     <ul class="my-0">
         {% if page.skills and page.skills.size > 0 %}
@@ -20,7 +14,7 @@ layout: default
                 {% for skill in page.skills %}
                 <div
                     class="bg-primary-500 dark:bg-primary-900 text-sm py-1 text-primary-200 dark:text-primary-400 items-center px-2 rounded-md flex flex-row gap-2 h-fit">
-                    <i class="{{ skill.icon }}"></i>{{ skill.name }}
+                    {% include icon.html name=skill.icon class="w-4 h-4" %}{{ skill.name }}
                 </div>
                 {% endfor %}
             </div>
@@ -31,22 +25,19 @@ layout: default
         <li class="mb-3">
             <div class="flex flex-row flex-wrap items-center gap-4">
                 {% if page.start_date %}
-                <div class="flex flex-row items-center gap-2"><i class="fas fa-play"></i><span>Started {{ page.start_date | date: "%b %Y" }}</span></div>
+                <div class="flex flex-row items-center gap-2">{% include icon.html name="fa-play" class="w-4 h-4"
+                    %}<span>Started {{
+                        page.start_date | date: "%b %Y" }}</span></div>
                 {% endif %}
                 {% if page.end_date %}
-                <div class="flex flex-row items-center gap-2"><i class="fas fa-flag-checkered"></i><span>Ended {{ page.end_date | date: "%b %Y" }}</span></div>
+                <div class="flex flex-row items-center gap-2">{% include icon.html name="fa-flag-checkered" class="w-4
+                    h-4" %}<span>Ended {{
+                        page.end_date | date: "%b %Y" }}</span></div>
                 {% else %}
-                <div class="flex flex-row items-center gap-2"><i class="fas fa-arrows-rotate"></i><span>Ongoing</span></div>
+                <div class="flex flex-row items-center gap-2">{% include icon.html name="fa-arrows-rotate" class="w-4
+                    h-4" %}<span>Ongoing</span>
+                </div>
                 {% endif %}
-            </div>
-        </li>
-        {% endif %}
-
-        {% if page.activity_percent %}
-        <li class="mb-3">
-            <div class="text-sm mb-1">Activity{% if page.activity_status %} ({{ page.activity_status }}){% endif %}: {{ page.activity_percent }}%</div>
-            <div class="w-full bg-primary-200 dark:bg-primary-900 rounded-full h-2 overflow-hidden">
-                <div class="bg-primary-700 dark:bg-primary-400 h-2 rounded-full" style="width: {{ page.activity_percent }}%"></div>
             </div>
         </li>
         {% endif %}
@@ -55,7 +46,8 @@ layout: default
         <li class="mb-3">
             <div class="flex flex-row flex-wrap items-center gap-3">
                 {% for link in page.links %}
-                <div class="flex flex-row items-center gap-2"><i class="{{ link.icon | default: 'fas fa-arrow-up-right-from-square' }}"></i><a class="no-external-icon" href="{{ link.url }}">{{ link.title }}</a></div>
+                <div class="flex flex-row items-center gap-2">{% include icon.html name=link.icon class="w-4 h-4" %}<a
+                        class="no-external-icon" href="{{ link.url }}">{{ link.title }}</a></div>
                 {% endfor %}
             </div>
         </li>
@@ -68,14 +60,15 @@ layout: default
 
         {% if page.website and has_links == false %}
         <li>
-            <div class="flex flex-row items-center gap-3"><i class="fas fa-link"></i><a href="{{ page.website }}">Visit
+            <div class="flex flex-row items-center gap-3">{% include icon.html name="fa-link" class="w-4 h-4" %}<a
+                    href="{{ page.website }}">Visit
                     the website</a></div>
         </li>
         {% endif %}
 
         {% if page.video %}
         <li>
-            <div class="flex flex-row items-center gap-3"><i class="fa-brands fa-youtube"></i><a
+            <div class="flex flex-row items-center gap-3">{% include icon.html name="fa-file-lines" class="w-4 h-4" %}<a
                     href="{{ page.video }}">Watch the recap</a></div>
         </li>
         {% endif %}
