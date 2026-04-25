@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-theme-doctored"
-  spec.version = "0.3.10"
+  spec.version = "0.3.12"
   spec.authors = ["matmanna"]
   spec.email = [""]
   spec.license = "MIT"
