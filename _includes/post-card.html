@@ -18,11 +18,11 @@ adjust based on kind so the same template can render posts, projects, pages, etc
 {%- endif -%}
 
 <li
-    class="rounded-md p-0 w-full flex flex-col gap-1 bg-primary-200 dark:bg-primary-950 outline-primary-200 dark:outline-primary-900 overflow-hidden">
-    <div class="flex flex-row items-stretch gap-3 w-full px-3 py-2">
+    class="project-card rounded-md p-0 w-full flex flex-col gap-1 bg-primary-200 dark:bg-primary-950 outline-primary-200 dark:outline-primary-900 overflow-hidden">
+    <div class="project-card__layout flex flex-col sm:flex-row items-stretch gap-3 w-full px-3 py-2">
         {%- if (kind == 'project' or kind == 'projects') and entry.image -%}
         <div
-            class="w-36 h-24 min-w-36 self-center overflow-hidden rounded-md border border-primary-500/40 sm:w-48 sm:h-36 sm:min-w-44">
+            class="w-full h-36 min-w-0 self-center overflow-hidden rounded-md border border-primary-500/40 md:w-36 md:h-24 md:min-w-36 lg:w-48 lg:h-36 lg:min-w-44">
             <a href="{{ entry.url | relative_url }}" class="no-underline block w-full h-full">
                 <img src="{{ entry.image | relative_url }}" alt="{{ entry.title }} image"
                     class="w-full h-full object-cover" loading="lazy">
@@ -30,7 +30,8 @@ adjust based on kind so the same template can render posts, projects, pages, etc
         </div>
         {%- endif -%}
 
-        <div class="flex flex-col gap-2 w-full">
+   
+        <div class="project-card__content flex flex-col gap-2 w-full min-w-0">
             <div
                 class="flex flex-row gap-2 w-full rounded-md items-center px-2 py-1.5 bg-primary-300 dark:bg-primary-800">
                 <h4 class="my-0 items-center text-md flex-1">
@@ -50,11 +51,10 @@ adjust based on kind so the same template can render posts, projects, pages, etc
                         {%- if entry.start_date -%}
                         {{ entry.start_date | date: "%b %Y" }}
                         {%- endif -%}
-                         {{" "}} 
                         {%- if entry.end_date -%}
                         - {{ entry.end_date | date: "%b %Y" }}
                         {%- elsif entry.start_date -%}
-                        - present
+                        - now
                         {%- endif -%}
                     </span>
                 </div>
@@ -78,7 +78,7 @@ adjust based on kind so the same template can render posts, projects, pages, etc
                 {%- endif -%}
 
                 {%- if kind == 'project' or kind == 'projects' -%}
-                <div class="flex flex-row flex-wrap gap-2 mt-1">
+                <div class="project-card__desktop-links flex flex-row flex-wrap gap-2 mt-1">
                     {%- if entry.links and entry.links.size > 0 -%}
                     {% for link in entry.links %}
                     <a href="{{ link.url }}" class="no-underline no-external-icon">
@@ -116,21 +116,21 @@ adjust based on kind so the same template can render posts, projects, pages, etc
                     <a href="{{ entry.source_code }}" class="no-underline no-external-icon">
                         <div
                             class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
-                            {% include icon.html name="fa-brands fa-github" class="w-3 h-3" %}Source code
+                            {% include icon.html name="fa-brands fa-github" class="w-3 h-3" %}Source
                         </div>
                     </a>
                     {%- elsif entry.source -%}
                     <a href="{{ entry.source }}" class="no-underline no-external-icon">
                         <div
                             class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
-                            {% include icon.html name="fa-brands fa-github" class="w-3 h-3" %}Source code
+                            {% include icon.html name="fa-brands fa-github" class="w-3 h-3" %}Source
                         </div>
                     </a>
                     {%- elsif entry.github -%}
                     <a href="{{ entry.github }}" class="no-underline no-external-icon">
                         <div
                             class="bg-primary-100 dark:bg-primary-900 border border-primary-500 py-1 px-2 rounded-md text-xs flex flex-row items-center gap-2">
-                            {% include icon.html name="fa-brands fa-github" class="w-3 h-3" %}Source code
+                            {% include icon.html name="fa-brands fa-github" class="w-3 h-3" %}Source
                         </div>
                     </a>
                     {%- endif -%}

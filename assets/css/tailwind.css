@@ -141,3 +141,15 @@ input.task-list-item-checkbox {
 .content strong {
     text-transform: none !important;    
 }
+
+@media (min-width: 170ch) {
+    .projects-width-breakout {
+        --projects-breakout-width: min(170ch, calc(100vw - 2rem));
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: var(--projects-breakout-width);
+        max-width: none;
+        margin-left: calc((80ch - var(--projects-breakout-width)) / 2);
+        margin-right: calc((80ch - var(--projects-breakout-width)) / 2);
+    }
+}

@@ -13,7 +13,7 @@ a couple of _the_ most common questions<small>These are also some of the most co
 
 ## Recent Projects
 
-<ul class="px-0 flex mt-3 flex-col gap-3 not-prose">
+<ul class="projects-width-breakout px-0 flex mt-3 flex-col gap-3 not-prose">
 	{% assign recent_projects = site.projects | sort: "start_date" | reverse %}
 	{% for project in recent_projects limit:4 %}
 	{% include post-card.html entry=project kind='project' %}
