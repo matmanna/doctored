@@ -22,3 +22,6 @@
 - src: ./assets/images/badges/made-with-neovim.png
   href: https://neovim.io
   alt: Made with Neovim
+- src: ./assets/images/badges/friends/gideon.gif
+  href: https://gideon.sh
+  alt: Friend of Gideon
