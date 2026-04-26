@@ -1,4 +1,23 @@
-import colors from 'tailwindcss/colors'
+const colors = require('tailwindcss/colors')
+
+function getPalette() {
+  const defaultPaletteName = 'stone'
+  const paletteName = (process.env.PRIMARY_PALETTE || defaultPaletteName).toLowerCase()
+  let primaryPalette = colors[paletteName]
+  if (!primaryPalette) {
+    primaryPalette = colors[defaultPaletteName]
+  }
+
+  const primaryShade = process.env.PRIMARY_SHADE
+  if (primaryShade && primaryPalette && primaryPalette[primaryShade]) {
+    const mapped = {}
+    Object.keys(primaryPalette).filter(k => /^\d+$/.test(k)).forEach(k => {
+      mapped[k] = primaryPalette[primaryShade]
+    })
+    return { primary: mapped }
+  }
+  return { primary: primaryPalette }
+}
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,28 +26,15 @@ module.exports = {
     './_includes/**/*.html',
     './_layouts/**/*.html',
     './_pages/**/*.html',
+    './_posts/**/*.md',
+    './_projects/**/*.md',
+    './_drafts/**/*.md',
     './*.html',
   ],
+  safelist: [],
   theme: {
     extend: {
-      colors: (function () {
-        const defaultPaletteName = 'stone'
-        const paletteName = (process.env.PRIMARY_PALETTE || defaultPaletteName).toLowerCase()
-        let primaryPalette = colors[paletteName]
-        if (!primaryPalette) {
-          primaryPalette = colors[defaultPaletteName]
-        }
-
-        const primaryShade = process.env.PRIMARY_SHADE
-        if (primaryShade && primaryPalette && primaryPalette[primaryShade]) {
-          const mapped = {}
-          Object.keys(primaryPalette).filter(k => /^\d+$/.test(k)).forEach(k => {
-            mapped[k] = primaryPalette[primaryShade]
-          })
-          return { primary: mapped }
-        }
-        return { primary: primaryPalette }
-      })(),
+      colors: getPalette(),
       typography: {
         DEFAULT: {
           css: (theme) => ({
