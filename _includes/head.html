@@ -61,5 +61,8 @@
         }
     </style>
     <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon">
+        {% if site.analytics %}
+{% include analytics.html %}
+        {% endif %}
     {% seo %}
 </head>

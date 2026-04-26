@@ -29,7 +29,7 @@ for p in "${PALETTES[@]}"; do
   CSS_FILE="$CSSOUT/main.$p.css"
   HTML_FILE="$OUTDIR/main.$p.html"
 
-  PRIMARY_PALETTE=$p npx tailwindcss -i "$INPUT" -o "$CSS_FILE" --minify
+  PRIMARY_PALETTE=$p npx tailwindcss -i "$INPUT" -o "$CSS_FILE" --minify --config tailwind.config.js
 
   {
     echo "<style>"
