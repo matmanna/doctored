@@ -2,13 +2,15 @@
 layout: page
 title: Projects
 description: My proudest projects and achievements
+permalink: /projects/
 ---
 
 {{ page.description}}
 
 <ul class="px-0 flex mt-4 flex-col gap-4 not-prose pt-8">
-    {% for project in site.projects %}
-    {% include post-card.html post=post %}
+    {% assign sorted_projects = site.projects | sort: "start_date" | reverse %}
+    {% for project in sorted_projects %}
+    {% include post-card.html entry=project kind='project' %}
 
     {% endfor %}
 </ul>

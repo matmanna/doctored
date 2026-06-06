@@ -6,17 +6,18 @@
     <script>
         function applyTheme(newTheme, triggeredByDropdown = false) {
             const isDarkMode = newTheme === 'dark' || (localStorage.theme == 'dark' && !(newTheme === 'light')) || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            document.documentElement.classList.toggle(
-                'dark',
-                isDarkMode
-            )
+            document.documentElement.classList.toggle('dark', isDarkMode);
 
             const toggle = document.getElementById('theme-toggle');
             const dropdown = document.getElementById('theme-dropdown');
 
             if (toggle) {
                 toggle.innerHTML =
-                    localStorage.theme == "dark" ? '<i class="fas fa-moon"></i>' : !localStorage.theme ? '<i class="fas fa-laptop"></i>' : '<i class="fas fa-sun"></i>';
+                    localStorage.theme == "dark"
+                        ? '{% capture t %}{% include icon.html name="fa-moon" class="w-4 h-4 inline-block" %}{% endcapture %}{{ t | strip_newlines }}'
+                        : !localStorage.theme
+                        ? '{% capture t %}{% include icon.html name="fa-laptop" class="w-4 h-4 inline-block" %}{% endcapture %}{{ t | strip_newlines }}'
+                        : '{% capture t %}{% include icon.html name="fa-sun" class="w-4 h-4 inline-block" %}{% endcapture %}{{ t | strip_newlines }}';
             }
             if (dropdown) {
                 if (!triggeredByDropdown) {
@@ -29,7 +30,39 @@
     </script>
     {%- assign palette = site.color | default: 'stone' -%}
     {% include palette_styles.html palette=palette %}
+    <style>
+        a[href^="http://"]:not(.no-external-icon):not([data-no-external-icon])::after,
+        a[href^="https://"]:not(.no-external-icon):not([data-no-external-icon])::after {
+            content: "↗" !important;
+            font-family: inherit !important;
+            margin-left: 3px;
+            padding-left: 3px;
+            text-decoration: none;
+        }
+
+        .icon-fa {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+            vertical-align: -0.125em;
+            fill: currentColor;
+            overflow: visible;
+        }
+
+        .icon-fa.w-3.h-3 {
+            width: 0.75rem;
+            height: 0.75rem;
+        }
+
+        .icon-fa.w-4.h-4 {
+            width: 1rem;
+            height: 1rem;
+        }
+    </style>
     <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon">
-    <script defer src="https://kit.fontawesome.com/a7b73c75c9.js" crossorigin="anonymous"></script>
+        {% if site.analytics %}
+{% include analytics.html %}
+        {% endif %}
     {% seo %}
 </head>

@@ -1,0 +1,10 @@
+{
+  "content": [
+    "./_layouts/**/*.html",
+    "./_includes/**/*.html", 
+    "./_pages/**/*.html",
+    "./_posts/**/*.md",
+    "./_projects/**/*.md"
+  ],
+  "css": ["./assets/css/main.stone.css"]
+}

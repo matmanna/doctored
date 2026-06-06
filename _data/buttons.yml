@@ -1,0 +1,27 @@
+- src: ./assets/images/badges/hackclub.png
+  href: https://hackclub.com
+  alt: Hack Club
+- src: ./assets/images/badges/archive.gif
+  href: https://archive.org
+  alt: Archive
+- src: ./assets/images/badges/roly-saynotoweb3.gif
+  href: https://yesterweb.org/no-to-web3/
+  alt: Say No to Web3
+- src: ./assets/images/badges/runrust.png
+  href: https://rust-lang.org
+  alt: Rust!
+- src: ./assets/images/badges/catppuccin.gif
+  href: https://catppuccin.com
+  alt: Catppuccin
+- src: ./assets/images/badges/penguins.gif
+  href: https://kernel.org
+  alt: Powered by Penguins
+- src: ./assets/images/badges/powered_by_nixos.gif
+  href: https://nixos.org/
+  alt: Powered by NixOS
+- src: ./assets/images/badges/made-with-neovim.png
+  href: https://neovim.io
+  alt: Made with Neovim
+- src: ./assets/images/badges/friends/gideon.gif
+  href: https://gideon.sh
+  alt: Friend of Gideon

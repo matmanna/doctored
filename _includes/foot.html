@@ -1,6 +1,14 @@
-<div class="flex flex-row justify-between w-full px-5 md:px-10 gap-8">
-    <div class="flex flex-col space-y-4 sm:flex-grow max-w-[50%] font-sans">
-        <h3 class="block">{{ site.data.foot.emoji }} {{ site.data.foot.title }} | <span class="dark:text-primary-600 text-primary-700">{{ site.description }}</span></h3>
+<div class="flex flex-row justify-between w-full px-5 md:px-10 gap-8" style="flex-basis: 67%">
+    <div class="flex flex-col space-y-4 sm:flex-grow max-w-[50%] font-sans" >
+        <h3 class="block gap-2 items-center">
+          {% if site.data.foot.logo %}
+            <span class="text-nowrap inline"><img src="{{ site.data.foot.logo | relative_url }}" alt="logo" class="h-6 w-6">
+            {{ site.data.foot.title }} |</span>
+          {% else %}
+            <span class="text-nowrap inline">{{ site.data.foot.emoji }} {{ site.data.foot.title }} |</span>
+          {% endif %}
+           <span class="dark:text-primary-600 text-primary-700">{{ site.description }}</span>
+        </h3>
         <div class="flex flex-row flex-wrap gap-4 dark:text-primary-600">
             <label for="theme">Color mode:</label>
 
