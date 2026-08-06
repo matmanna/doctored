@@ -5,6 +5,10 @@ description: The home page for the Doctored blog theme.
 permalink: /
 ---
 
+## What?
+
+- A jekyll theme which prioritizes uniqueness, technical complexity, and sophistication<small>While this could be redundant, it describes the the theme's vibe.</small>[^2]
+
 ## Why?
 
 Because there is no theme quite like what I would want.
