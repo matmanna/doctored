@@ -5,6 +5,8 @@ description: The home page for the Doctored blog theme.
 permalink: /
 ---
 
+a couple of _the_ most common questions<small>These are also some of the most common questions that <a href="https://en.wikipedia.org/wiki/Five_Ws">journalists</a> have!</small>[^1] you might have.
+
 ## What?
 
 - A jekyll theme which prioritizes uniqueness, technical complexity, and sophistication<small>While this could be redundant, it describes the the theme's vibe.</small>[^2]
