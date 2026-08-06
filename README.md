@@ -8,13 +8,13 @@
 
 A  blog theme prioritizing uniqueness, technical complexity, and sophistication.
 
-**🧪 Demo Deployment:** https://matmanna.github.io/doctored
+**Demo Deployment:** https://matmanna.github.io/doctored
 
-## 🌟 Overview
+## Overview
 
 Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com) starter guide and [template](https://github.com/hackclub/tonic-starter). No other jekyll theme really felt like it matched what I would have wanted so I created my own!
 
-**💫 Features:**
+**Features:**
 
 - 20+ color schemes & dark/light/system modes
 - Projects, blog, now, and contact pages
@@ -25,13 +25,13 @@ Made using Jekyll and Tailwind following the [Tonic](https://tonic.hackclub.com)
 - RSS feed & sitemap
 - Responsive nav, footer sections
 
-## 📸 Demo Images:
+## Demo Images:
 
 | <img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/a130fd59-c673-4f4a-a676-3fd0bfb2473b" /> | <img width="1914" height="1018" alt="image" src="https://github.com/user-attachments/assets/2eeb6c33-fe38-46a4-8d54-c1fad985ed3b" /> |
 | ----- | ---- |
 | <img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/0919fd1d-2ed2-4ded-829a-6b504f939515" /> | <img width="1917" height="1014" alt="image" src="https://github.com/user-attachments/assets/dadb5548-a2c0-4f22-a2e1-6b2f67bd29f9" /> |
 
-## 💾 Installation Instructions
+## Installation Instructions
 
 > [!NOTE]
 > Additional installation/usage instructions are WIP
@@ -43,13 +43,13 @@ To add to an existing Jekyll site using the packaged gem (recommended):
 3. add `theme: jekyll-theme-doctored` to your Jekyll `_config.yml`
 4. follow the usage instructions below to serve (or continue customizing) your site!
 
-## ⌨️ Usage
+## Usage
 
-### ▶️ Running
+### Running
 
 Run `npm install` and `npm run dev` to develop. Run `npm run build` to build. Postinstall and other scripts have been configured to use `bundle install`, `bundle exec jekyll serve --watch`, and `bundle exec jekyll build` respectively.
 
-### 🖼️ Formatting posts
+### Formatting posts
 
 If you want to use sidenotes in your posts/pages, begin by copying the `utils/postMarkdown.py` script and creating a `_drafts` directory within your project.
 
@@ -62,10 +62,10 @@ To post a new post, run `python utils/postMarkdown.py _drafts/_posts/example-001
   <small>Richly-formatted (html) content of note</small>
   ```
 
-## 🙌 Contributing
+## Contributing
 
 Please create Issues and PRs for bugs/feature requests and updated code respectively. 
 
-### 📜 License
+### License
 
 Doctored is licensed under the MIT, which means you can do (almost) anything with it!!
